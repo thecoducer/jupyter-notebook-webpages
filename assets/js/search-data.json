@@ -18,17 +18,6 @@
   
 
   
-      ,"page2": {
-          "title": "Home",
-          "content": "",
-          "url": "https://thecoducer.github.io/blog/https:/thecoducer.github.io/",
-          "relUrl": "/https:/thecoducer.github.io/",
-          "date": ""
-      }
-      
-  
-
-  
 
   
   
@@ -50,7 +39,7 @@
   
 
   
-      ,"page11": {
+      ,"page10": {
           "title": "",
           "content": "Sitemap: {{ “sitemap.xml” | absolute_url }} | .",
           "url": "https://thecoducer.github.io/blog/robots.txt",
