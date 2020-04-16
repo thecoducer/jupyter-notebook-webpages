@@ -6,8 +6,8 @@
 # https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
 # https://learnxinyminutes.com/docs/yaml/
 
-title: fastpages
-description: An easy to use blogging platform with support for Jupyter Notebooks.
+title: My tryst with Data Science
+description: reading, writing, visualizing & speaking
 github_username: thecoducer
 # you can comment the below line out if your repo name is not different than your baseurl
 github_repo: "blog"
@@ -39,8 +39,8 @@ baseurl: "/blog" # the subpath of your site, e.g. "/blog".
 # Github and twitter are optional:
 minima:
   social_links:
-    twitter: fastdotai
-    github: fastai
+    twitter: thecoducer
+    github: thecoducer
 
 # Set this to true to get LaTeX math equation support
 use_math: 
@@ -75,6 +75,7 @@ default_badges:
 # Everything below here should be left alone. Modifications may break fastpages
 future: true
 theme: minima
+  skin: dark
 plugins:
   - jekyll-feed
   - jekyll-gist
