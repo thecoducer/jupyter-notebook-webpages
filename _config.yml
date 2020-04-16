@@ -75,7 +75,6 @@ default_badges:
 # Everything below here should be left alone. Modifications may break fastpages
 future: true
 theme: minima
-  skin: dark
 plugins:
   - jekyll-feed
   - jekyll-gist
