@@ -2,10 +2,18 @@
 /*--- IMPORT STYLES FOR FASTPAGES ---*/
 @import "minima/fastpages-styles";   
 
+@import url('https://fonts.googleapis.com/css?family=Overpass&display=swap');
+
 
 
 /*-----------------------------------*/
 /*----- ADD YOUR STYLES BELOW -------*/
+
+.page-content {
+  -webkit-font-smoothing: antialiased !important;
+  text-rendering: optimizeLegibility !important;
+  font-family: 'Overpass', sans-serif;
+}
 
 // If you want to turn off dark background for syntax highlighting, comment or delete the below line.
 // @import "minima/fastpages-dracula-highlight"; 
