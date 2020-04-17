@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Overpass&display=swap");
 .highlight .c { color: #998; font-style: italic; }
 
 .highlight .err { color: #a61717; background-color: #e3d2d2; }
@@ -427,5 +428,6 @@ table td { text-overflow: ellipsis; overflow: hidden; max-width: 15em; }
 
 /*-----------------------------------*/
 /*----- ADD YOUR STYLES BELOW -------*/
+.page-content { -webkit-font-smoothing: antialiased !important; text-rendering: optimizeLegibility !important; font-family: 'Overpass', sans-serif; }
 
 /*# sourceMappingURL=style.css.map */
