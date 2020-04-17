@@ -6,7 +6,7 @@
 
 https://thecoducer.github.io/blog/
 
-# My Tryst with Data Science
+# My Tryst with Computers
 
 
 _powered by [fastpages](https://github.com/fastai/fastpages)_
