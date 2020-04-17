@@ -2,23 +2,12 @@
   
     
   
-    
-        "post1": {
-            "title": "Total Outstanding Cases",
-            "content": ". Note: This dashboard contains the results of a predictive model. The author has tried to make it as accurate as possible. But the COVID-19 situation is changing quickly, and these models inevitably include some level of speculation. . Outstanding Cases by Geography . The chart below shows the total predicted number of outstanding cases, i.e. number of individuals who are still currently ill. . The chart also represents the reported case fatality rate (CFR) via the color of the country, which is heavily biased by the amount of testing which is performed in each country. . Tip: Change the scale of the y axis with the toggle button and hover over chart areas for more details. . Toggle Scale The table below shows summary statistics for the last 7 days. $Oustanding = Confirmed - Deaths - Recovered$. . Confirmed Deaths Est. Recoveries Outstanding . 2020-04-10 1657526 | 102525 | 425983 | 1129018 | . 2020-04-11 1735650 | 108502 | 467103 | 1160045 | . 2020-04-12 1834721 | 114090 | 511111 | 1209520 | . 2020-04-13 1904838 | 119481 | 557649 | 1227708 | . 2020-04-14 1976191 | 125983 | 606081 | 1244127 | . 2020-04-15 2056054 | 134176 | 656161 | 1265717 | . 2020-04-16 2152646 | 143800 | 707891 | 1300955 | . Percent of Global Total . This next chart shows the number of outstanding cases as a percent of the total confirmed global cases. Only countries representing a significant contribution to global totals are shown. . Tip: Hover over chart areas for more details. . Appendix: Methodology of Predicting Recovered Cases . John Hopkin&#39;s University&#39;s (JHU) dataset initially reported recovered cases but has since discontinued this, however estimating the recovery duration and extrapolating for current cases should be possible from this original data. . For the time being (I hope to draw from other discussions of this topic), I will use an empirically derived formula from the limited data available from JHU: . $$R_{n} = R_{n-1} + (C_{n-9} - R_{n-1})*0.07$$ . Where $R_{n}$ is the total number of recovered cases on day $n$, and $C_{n}$ is the total number of confirmed cases on day $n$. . What it implies is that on a given day, of the cases which were first reported 9 days previously 7% of those cases would have either recovered or passed away. After 16 days therefore 49% of cases would have recovered or passed away and after 23 days 98% of cases would have recovered or passsed away. . This formula is only being used to predict the number of recoveries from the time that JHU&#39;s data is not available. We can compare the results of this formula to the existing data from JHU to show the level of fit. This can be seen in the following 2 graphs. . Visualizations and analysis by Adrian Turcato1 . . Source: &quot;COVID-19 Data Repository by Johns Hopkins CSSE&quot; GitHub repository.&#8617; . |",
-            "url": "https://thecoducer.github.io/blog/outstanding_cases/",
-            "relUrl": "/outstanding_cases/",
-            "date": " • Mar 23, 2020"
-        }
-        
-    
-  
 
   
   
 
   
-      ,"page1": {
+      "page1": {
           "title": "About",
           "content": "",
           "url": "https://thecoducer.github.io/blog/about/",
