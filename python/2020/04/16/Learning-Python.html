@@ -110,7 +110,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      28 min read
+      29 min read
     
 </span></p>
 
@@ -322,6 +322,8 @@ window.onload = wrap_img;
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">h</span> <span class="o">=</span> <span class="s2">&quot;Kolkata&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
+<span class="n">i</span> <span class="o">=</span> <span class="mi">56</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">type</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -335,6 +337,7 @@ window.onload = wrap_img;
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>&lt;class &#39;str&#39;&gt;
+&lt;class &#39;int&#39;&gt;
 </pre>
 </div>
 </div>
@@ -461,8 +464,8 @@ er    sdefsdfg    dggh
 <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">[</span><span class="mi">9</span><span class="p">])</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">])</span> <span class="c1"># starts counting from the right</span>
-<span class="c1"># it is the second last character</span>
-<span class="c1"># Note that since -0 is the same as 0, negative indices start from -1.</span>
+<span class="c1"># -2 is the second last character</span>
+<span class="c1"># Note that since zero cannot be negative, negative indices start from -1.</span>
 </pre></div>
 
     </div>
@@ -502,9 +505,9 @@ g
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="nb">str</span> <span class="o">=</span> <span class="s1">&#39;Jekyll&#39;</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span>
-<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="c1">#inclusive of 1th element</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">[</span><span class="mi">2</span><span class="p">:])</span> 
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">[:</span><span class="mi">3</span><span class="p">])</span> <span class="c1"># exclusive of the 3rd element</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">[:</span><span class="mi">2</span><span class="p">]</span> <span class="o">+</span> <span class="nb">str</span><span class="p">[</span><span class="mi">4</span><span class="p">:])</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">:])</span>
 </pre></div>
@@ -524,6 +527,38 @@ kyll
 Jek
 Jell
 ll
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;jupyter&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">2</span><span class="p">:</span><span class="mi">4</span><span class="p">])</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>py
 </pre>
 </div>
 </div>
@@ -652,11 +687,11 @@ True
 <span class="k">def</span> <span class="nf">reverse</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
   <span class="n">temp</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
   <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">s</span><span class="p">:</span>
-    <span class="n">temp</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">temp</span> <span class="c1"># ... m + o + C</span>
+    <span class="n">temp</span> <span class="o">=</span> <span class="n">i</span> <span class="o">+</span> <span class="n">temp</span>
   <span class="k">return</span> <span class="n">temp</span>
 
-<span class="n">subject</span> <span class="o">=</span> <span class="s2">&quot;Kerala&quot;</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="n">subject</span><span class="p">))</span>
+<span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Kerala&quot;</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">reverse</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
 </pre></div>
 
     </div>
@@ -687,12 +722,57 @@ True
 
 <div class="inner_cell">
     <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># hard way of reversing strings</span>
+<span class="c1"># converting the string to list, swapping elements in the list</span>
+<span class="c1"># and then converting back the list to string</span>
+<span class="k">def</span> <span class="nf">rev</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
+    <span class="n">s</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="n">start</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="n">end</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
+    <span class="k">while</span><span class="p">(</span><span class="n">start</span> <span class="o">&lt;</span> <span class="n">end</span><span class="p">):</span>
+        <span class="n">s</span><span class="p">[</span><span class="n">start</span><span class="p">],</span> <span class="n">s</span><span class="p">[</span><span class="n">end</span><span class="p">]</span> <span class="o">=</span> <span class="n">s</span><span class="p">[</span><span class="n">end</span><span class="p">],</span> <span class="n">s</span><span class="p">[</span><span class="n">start</span><span class="p">]</span> <span class="c1">#swapping</span>
+        <span class="n">start</span> <span class="o">=</span> <span class="n">start</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="n">end</span> <span class="o">=</span> <span class="n">end</span> <span class="o">-</span> <span class="mi">1</span>
+    <span class="k">return</span> <span class="s2">&quot;&quot;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">rev</span><span class="p">(</span><span class="s2">&quot;mayukh&quot;</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>hkuyam
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Using recursion</span>
 <span class="k">def</span> <span class="nf">reverse1</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
   <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
     <span class="k">return</span> <span class="n">s</span>
   <span class="k">else</span><span class="p">:</span>
     <span class="k">return</span> <span class="n">reverse</span><span class="p">(</span><span class="n">s</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span> <span class="o">+</span> <span class="n">s</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
 <span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;Kolkata&quot;</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">reverse1</span><span class="p">(</span><span class="n">s</span><span class="p">))</span>
 </pre></div>
@@ -726,6 +806,7 @@ True
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># Using extended slice syntax</span>
+<span class="c1"># Easiest way to reverse a string</span>
 <span class="k">def</span> <span class="nf">reverse3</span><span class="p">(</span><span class="n">s</span><span class="p">):</span>
   <span class="k">return</span> <span class="n">s</span><span class="p">[::</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
 
@@ -876,8 +957,7 @@ True
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;101011&quot;</span>
-<span class="c1"># intify them!</span>
-<span class="n">l</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">s</span><span class="p">))</span>
+<span class="n">l</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
 </pre></div>
 
@@ -891,7 +971,7 @@ True
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[1, 0, 1, 0, 1, 1]
+<pre>101011
 </pre>
 </div>
 </div>
@@ -2742,6 +2822,40 @@ Operating System
 
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>[[&#39;s&#39;, &#39;a&#39;, &#39;t&#39;], [&#39;b&#39;, &#39;a&#39;, &#39;t&#39;], [&#39;c&#39;, &#39;a&#39;, &#39;t&#39;], [&#39;m&#39;, &#39;a&#39;, &#39;t&#39;]]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># string containing numbers to list of numbers</span>
+<span class="n">num</span> <span class="o">=</span> <span class="s2">&quot;86428452&quot;</span>
+<span class="n">n</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">num</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[8, 6, 4, 2, 8, 4, 5, 2]
 </pre>
 </div>
 </div>
