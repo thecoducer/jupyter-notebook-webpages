@@ -957,7 +957,7 @@ True
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">s</span> <span class="o">=</span> <span class="s2">&quot;101011&quot;</span>
-<span class="n">l</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+<span class="n">l</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">s</span><span class="p">)</span> <span class="c1">#typecasting string to int</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">l</span><span class="p">)</span>
 </pre></div>
 
@@ -1122,6 +1122,7 @@ True
 <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">itertools</span>
 <span class="n">a</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">]]</span>
 <span class="n">b</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="o">.</span><span class="n">from_iterable</span><span class="p">(</span><span class="n">a</span><span class="p">))</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="n">b</span><span class="p">)</span>
 </pre></div>
 
@@ -1393,21 +1394,6 @@ Length of the list:  20
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>Enter a number: -65
-It is a negative number.
-</pre>
-</div>
-</div>
-
-</div>
-</div>
-
 </div>
     
 
@@ -1439,8 +1425,8 @@ It is a negative number.
 <span class="n">word</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;cat&#39;</span><span class="p">,</span> <span class="s1">&#39;dog&#39;</span><span class="p">,</span> <span class="s1">&#39;tiger&#39;</span><span class="p">,</span> <span class="s1">&#39;lion&#39;</span><span class="p">]</span>
 <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
   <span class="n">w</span> <span class="o">=</span> <span class="n">w</span><span class="o">.</span><span class="n">capitalize</span><span class="p">()</span>
+
 <span class="nb">print</span><span class="p">(</span><span class="n">word</span><span class="p">)</span>
-  <span class="c1">#print(w.capitalize(), len(w))</span>
 </pre></div>
 
     </div>
@@ -1523,7 +1509,7 @@ It is a negative number.
     <span class="n">n</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">())</span>
     <span class="n">arr</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()))</span>
     <span class="n">first</span> <span class="o">=</span> <span class="n">second</span> <span class="o">=</span> <span class="o">-</span><span class="n">sys</span><span class="o">.</span><span class="n">maxsize</span> <span class="c1"># maximum negative integer</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)):</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)):</span>
         <span class="k">if</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">first</span><span class="p">:</span>
             <span class="n">second</span> <span class="o">=</span> <span class="n">first</span>
             <span class="n">first</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
@@ -1543,13 +1529,10 @@ It is a negative number.
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>2
+<pre>1
 5
-10 2 -96 21 3
-10
+1 9 2 6 3
 6
-10 20 -96 -31 2 1
-10
 </pre>
 </div>
 </div>
@@ -1589,19 +1572,6 @@ It is a negative number.
 </pre></div>
 
     </div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-<div class="output_area">
-
-<div class="output_subarea output_stream output_stdout output_text">
-<pre>0 1 2 3 4 5 6 7 8 9 </pre>
-</div>
-</div>
-
 </div>
 </div>
 
@@ -1748,7 +1718,7 @@ It is a negative number.
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">primes</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
-  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">n</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span> <span class="c1"># 1 to 15</span>
     <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
       <span class="k">if</span> <span class="n">i</span> <span class="o">%</span> <span class="n">j</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="s2">&quot;equals&quot;</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="s2">&quot;*&quot;</span><span class="p">,</span> <span class="n">i</span><span class="o">//</span><span class="n">j</span><span class="p">)</span>
@@ -1774,7 +1744,8 @@ It is a negative number.
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>2 is a prime number
+<pre>1 is a prime number
+2 is a prime number
 3 is a prime number
 4 equals 2 * 2
 5 is a prime number
@@ -1787,6 +1758,7 @@ It is a negative number.
 12 equals 2 * 6
 13 is a prime number
 14 equals 2 * 7
+15 equals 3 * 5
 </pre>
 </div>
 </div>
