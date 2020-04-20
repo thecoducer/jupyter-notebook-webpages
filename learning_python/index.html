@@ -114,7 +114,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      29 min read
+      30 min read
     
 </span></p>
 
@@ -197,8 +197,9 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#Default-argument-values-in-function">Default argument values in function </a></li>
 <li class="toc-entry toc-h2"><a href="#in-and-not-in-operator">in and not in operator </a></li>
 <li class="toc-entry toc-h2"><a href="#Lambda-expression">Lambda expression </a></li>
+<li class="toc-entry toc-h2"><a href="#filter()-method">filter() method </a></li>
 <li class="toc-entry toc-h2"><a href="#Unpacking-Argument-Lists">Unpacking Argument Lists </a></li>
-<li class="toc-entry toc-h2"><a href="#What's-left-to-read-in-this-chapter?">What&#39;s left to read in this chapter? </a></li>
+<li class="toc-entry toc-h2"><a href="#Keyword-arguments">Keyword arguments </a></li>
 </ul>
 </li>
 <li class="toc-entry toc-h1"><a href="#Data-Structures">Data Structures </a>
@@ -2531,6 +2532,15 @@ One prints 9 7
 </div>
     
 
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="filter()-method">
+<a class="anchor" href="#filter()-method" aria-hidden="true"><span class="octicon octicon-link"></span></a>filter() method<a class="anchor-link" href="#filter()-method"> </a>
+</h2>
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -2538,8 +2548,7 @@ One prints 9 7
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># using filter function</span>
-<span class="c1"># The filter() function in Python takes in a function and a list as arguments.</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># The filter() takes in a function and a list as arguments.</span>
 <span class="c1"># This offers an elegant way to filter out all the elements of a sequence, </span>
 <span class="c1"># for which the function returns True. </span>
 <span class="n">li</span> <span class="o">=</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">97</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">73</span><span class="p">,</span> <span class="mi">61</span><span class="p">]</span>
@@ -2584,7 +2593,7 @@ One prints 9 7
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">]</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">a</span> <span class="o">=</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="c1"># [start, stop, step]</span>
 <span class="nb">print</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="o">*</span><span class="n">a</span><span class="p">)))</span>
 </pre></div>
 
@@ -2612,15 +2621,10 @@ One prints 9 7
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="What's-left-to-read-in-this-chapter?">
-<a class="anchor" href="#What's-left-to-read-in-this-chapter?" aria-hidden="true"><span class="octicon octicon-link"></span></a>What's left to read in this chapter?<a class="anchor-link" href="#What's-left-to-read-in-this-chapter?"> </a>
+<h2 id="Keyword-arguments">
+<a class="anchor" href="#Keyword-arguments" aria-hidden="true"><span class="octicon octicon-link"></span></a>Keyword arguments<a class="anchor-link" href="#Keyword-arguments"> </a>
 </h2>
-<ul>
-<li>Keyword Arguments</li>
-<li>Arbitrary Argument Lists</li>
-<li>Documentation Strings</li>
-<li>Function Annotations</li>
-</ul>
+<p><a href="https://docs.python.org/3/tutorial/controlflow.html#keyword-arguments">https://docs.python.org/3/tutorial/controlflow.html#keyword-arguments</a></p>
 
 </div>
 </div>
@@ -2663,54 +2667,64 @@ One prints 9 7
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># list.append(x) - adds to the end of the list</span>
 <span class="n">l1</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
 <span class="n">l1</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"After append "</span><span class="p">,</span> <span class="n">l1</span><span class="p">)</span>
 
 <span class="c1"># list.extend(iterable) - extends the list by appending all the items from the iterable</span>
 <span class="n">l1</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"After extend "</span><span class="p">,</span> <span class="n">l1</span><span class="p">)</span>
 
 <span class="c1"># list.insert(i, x) - i is the index value and x is the data to insert</span>
 <span class="n">l1</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"After insert "</span><span class="p">,</span> <span class="n">l1</span><span class="p">)</span>
 
 <span class="c1"># list.remove(x) - removes first item from the list whose value is equal to x. Raises ValueError if not found</span>
 <span class="n">l1</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"After remove "</span><span class="p">,</span> <span class="n">l1</span><span class="p">)</span>
 
 <span class="c1"># list.pop([i]) - passing the parameter is optional and hence written within [].</span>
 <span class="c1"># removes the item at a given position</span>
 <span class="c1"># list.pop() removes and returns the last item in the list</span>
 <span class="nb">print</span><span class="p">(</span><span class="n">l1</span><span class="o">.</span><span class="n">pop</span><span class="p">())</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"After pop() "</span><span class="p">,</span> <span class="n">l1</span><span class="p">)</span>
+
+<span class="c1"># del operator deletes an element from a specified index</span>
+<span class="k">del</span> <span class="n">l1</span><span class="p">[</span><span class="mi">4</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"After del[4] "</span><span class="p">,</span> <span class="n">l1</span><span class="p">)</span>
 
 <span class="c1"># list.clear() - removes all items from the list. Equivalent to del list[:]</span>
 <span class="n">l2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">98</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">l2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Before clear() "</span><span class="p">,</span> <span class="n">l2</span><span class="p">)</span>
 <span class="n">l2</span><span class="o">.</span><span class="n">clear</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">l2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"After clear() "</span><span class="p">,</span> <span class="n">l2</span><span class="p">)</span>
 
 <span class="c1"># list.index(x[, start[, end]])</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">l1</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">l1</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">l1</span><span class="p">)))</span>
+<span class="c1"># Return zero-based index in the list of the first item whose value is equal to x. </span>
+<span class="c1"># Raises a ValueError if there is no such item.</span>
+<span class="c1"># The optional arguments start and end are interpreted as in the slice notation </span>
+<span class="c1"># and are used to limit the search to a particular subsequence of the list. </span>
+<span class="c1"># The returned index is computed relative to the beginning of </span>
+<span class="c1"># the full sequence rather than the start argument.</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Element 4 is at"</span><span class="p">,</span> <span class="n">l1</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">4</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Element 7 in slice l1[1:len(l1)] is at"</span><span class="p">,</span> <span class="n">l1</span><span class="o">.</span><span class="n">index</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">l1</span><span class="p">)))</span>
 <span class="c1"># print(l1.index(7, 1, 3)) # raises ValueError since 7 is not in the slice | 1 | 2 | 3 |</span>
 
 <span class="c1"># list.count(x) - return the number of times x appears in the list</span>
 <span class="n">l2</span> <span class="o">=</span> <span class="p">[</span><span class="mi">6</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">l2</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Count of occurences of element 6"</span><span class="p">,</span> <span class="n">l2</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="mi">6</span><span class="p">))</span>
 
 <span class="c1">#list.sort(key=None, reverse=False) - sorts elements in place</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">l2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Before sort in ascending order"</span><span class="p">,</span> <span class="n">l2</span><span class="p">)</span>
 <span class="n">l2</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">l2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"After sort in ascending order"</span><span class="p">,</span> <span class="n">l2</span><span class="p">)</span>
 <span class="n">l2</span><span class="o">.</span><span class="n">sort</span><span class="p">(</span><span class="n">reverse</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">l2</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"After sort in descending order"</span><span class="p">,</span> <span class="n">l2</span><span class="p">)</span>
 
 <span class="c1"># list.reverse() - reverse the elements in </span>
 <span class="n">l1</span><span class="o">.</span><span class="n">reverse</span><span class="p">()</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">l1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"Reversing the list"</span><span class="p">,</span> <span class="n">l1</span><span class="p">)</span>
 
 <span class="c1"># list.copy() - returns a shallow copy of the list. Equivalent to list[:]</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">l2</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"list copied"</span><span class="p">,</span> <span class="n">l2</span><span class="o">.</span><span class="n">copy</span><span class="p">())</span>
 </pre></div>
 
     </div>
@@ -2723,22 +2737,23 @@ One prints 9 7
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>[1, 2, 3, 4]
-[1, 2, 3, 4, 6, 7, 8, 9]
-[1, 2, 3, 4, 5, 6, 7, 8, 9]
-[1, 2, 4, 5, 6, 7, 8, 9]
+<pre>After append  [1, 2, 3, 4]
+After extend  [1, 2, 3, 4, 6, 7, 8, 9]
+After insert  [1, 2, 3, 4, 5, 6, 7, 8, 9]
+After remove  [1, 2, 4, 5, 6, 7, 8, 9]
 9
-[1, 2, 4, 5, 6, 7, 8]
-[98, 56, 21, 30]
-[]
-2
-5
-3
-[6, 51, 6, 21, 52, 6, 2]
-[2, 6, 6, 6, 21, 51, 52]
-[52, 51, 21, 6, 6, 6, 2]
-[8, 7, 6, 5, 4, 2, 1]
-[52, 51, 21, 6, 6, 6, 2]
+After pop()  [1, 2, 4, 5, 6, 7, 8]
+After del[4]  [1, 2, 4, 5, 7, 8]
+Before clear()  [98, 56, 21, 30]
+After clear()  []
+Element 4 is at 2
+Element 7 in slice l1[1:len(l1)] is at 4
+Count of occurences of element 6 3
+Before sort in ascending order [6, 51, 6, 21, 52, 6, 2]
+After sort in ascending order [2, 6, 6, 6, 21, 51, 52]
+After sort in descending order [52, 51, 21, 6, 6, 6, 2]
+Reversing the list [8, 7, 5, 4, 2, 1]
+list copied [52, 51, 21, 6, 6, 6, 2]
 </pre>
 </div>
 </div>
