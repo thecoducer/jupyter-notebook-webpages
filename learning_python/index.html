@@ -1895,6 +1895,40 @@ Length of the list:  20
 </div>
     
 
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># we can create a list from string</span>
+<span class="nb">list</span><span class="p">(</span><span class="s2">"maharashtra"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>['m', 'a', 'h', 'a', 'r', 'a', 's', 'h', 't', 'r', 'a']</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -2233,7 +2267,7 @@ It's not a strong number.
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Like C, it continues with the next iteration of the loop.</p>
+<p>Like in C, continue statement continues with the next iteration of the loop.</p>
 
 </div>
 </div>
@@ -2324,6 +2358,51 @@ It's not a strong number.
 </div>
     
 
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#return statement with more than one values</span>
+<span class="k">def</span> <span class="nf">one</span><span class="p">():</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+    <span class="n">b</span> <span class="o">=</span> <span class="mi">10</span>
+    <span class="n">a</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="n">two</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"One prints"</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+    
+<span class="k">def</span> <span class="nf">two</span><span class="p">(</span><span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">):</span>
+    <span class="n">a</span><span class="o">=</span><span class="mi">9</span>
+    <span class="n">b</span><span class="o">=</span><span class="mi">7</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Two prints"</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">a</span><span class="p">,</span> <span class="n">b</span>
+    
+<span class="n">one</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Two prints 9 7
+One prints 9 7
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -2354,7 +2433,7 @@ It's not a strong number.
         <span class="k">if</span> <span class="n">ok</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">'n'</span><span class="p">,</span> <span class="s1">'no'</span><span class="p">,</span> <span class="s1">'nop'</span><span class="p">,</span> <span class="s1">'nope'</span><span class="p">):</span>
             <span class="k">return</span> <span class="kc">False</span>
         <span class="n">retries</span> <span class="o">=</span> <span class="n">retries</span> <span class="o">-</span> <span class="mi">1</span>
-        <span class="k">if</span> <span class="n">retries</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">retries</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">'invalid user response'</span><span class="p">)</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">reminder</span><span class="p">)</span>
 
@@ -2372,7 +2451,7 @@ It's not a strong number.
 <div class="output_area">
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>Okay?y
+<pre>Okay?nop
 </pre>
 </div>
 </div>
@@ -2382,7 +2461,7 @@ It's not a strong number.
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>True</pre>
+<pre>False</pre>
 </div>
 
 </div>
