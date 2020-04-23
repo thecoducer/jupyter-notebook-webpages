@@ -1,0 +1,78 @@
+*********************** Log Started 2020-04-23T17:08:23Z ***********************
+17:08:23:****************************** FAHClient ******************************
+17:08:23:    Version: 7.6.9
+17:08:23:     Author: Joseph Coffland <joseph@cauldrondevelopment.com>
+17:08:23:  Copyright: 2020 foldingathome.org
+17:08:23:   Homepage: https://foldingathome.org/
+17:08:23:       Date: Apr 17 2020
+17:08:23:       Time: 18:11:26
+17:08:23:   Revision: 398c2b17fa535e0cc6c9d10856b2154c32771646
+17:08:23:     Branch: master
+17:08:23:   Compiler: GNU 8.3.0
+17:08:23:    Options: -std=c++11 -ffunction-sections -fdata-sections -O3 -funroll-loops
+17:08:23:             -fno-pie
+17:08:23:   Platform: linux2 4.19.0-5-amd64
+17:08:23:       Bits: 64
+17:08:23:       Mode: Release
+17:08:23:******************************** CBang ********************************
+17:08:23:       Date: Apr 17 2020
+17:08:23:       Time: 18:10:13
+17:08:23:   Revision: 2fb0be7809c5e45287a122ca5fbc15b5ae859a3b
+17:08:23:     Branch: master
+17:08:23:   Compiler: GNU 8.3.0
+17:08:23:    Options: -std=c++11 -ffunction-sections -fdata-sections -O3 -funroll-loops
+17:08:23:             -fno-pie -fPIC
+17:08:23:   Platform: linux2 4.19.0-5-amd64
+17:08:23:       Bits: 64
+17:08:23:       Mode: Release
+17:08:23:******************************* System ********************************
+17:08:23:        CPU: Intel(R) Core(TM) i3-5005U CPU @ 2.00GHz
+17:08:23:     CPU ID: GenuineIntel Family 6 Model 61 Stepping 4
+17:08:23:       CPUs: 4
+17:08:23:     Memory: 7.69GiB
+17:08:23:Free Memory: 210.93MiB
+17:08:23:    Threads: POSIX_THREADS
+17:08:23: OS Version: 4.15
+17:08:23:Has Battery: true
+17:08:23: On Battery: false
+17:08:23: UTC Offset: 5
+17:08:23:        PID: 474
+17:08:23:        CWD: /media/thecoducer/DATA/blog
+17:08:23:         OS: Linux 4.15.0-91-generic x86_64
+17:08:23:    OS Arch: AMD64
+17:08:23:       GPUs: 0
+17:08:23:       CUDA: Not detected: Failed to open dynamic library 'libcuda.so':
+17:08:23:             libcuda.so: cannot open shared object file: No such file or
+17:08:23:             directory
+17:08:23:     OpenCL: Not detected: Failed to open dynamic library 'libOpenCL.so':
+17:08:23:             libOpenCL.so: cannot open shared object file: No such file or
+17:08:23:             directory
+17:08:23:******************************* libFAH ********************************
+17:08:23:       Date: Apr 15 2020
+17:08:23:       Time: 21:43:24
+17:08:23:   Revision: 216968bc7025029c841ed6e36e81a03a316890d3
+17:08:23:     Branch: master
+17:08:23:   Compiler: GNU 8.3.0
+17:08:23:    Options: -std=c++11 -ffunction-sections -fdata-sections -O3 -funroll-loops
+17:08:23:             -fno-pie
+17:08:23:   Platform: linux2 4.19.0-5-amd64
+17:08:23:       Bits: 64
+17:08:23:       Mode: Release
+17:08:23:***********************************************************************
+17:08:23:<config>
+17:08:23:  <!-- Folding Slots -->
+17:08:23:</config>
+17:08:23:Trying to access database...
+17:08:24:Successfully acquired database lock
+17:08:24:Enabled folding slot 00: PAUSED cpu:1 (not configured)
+[91m17:08:24:ERROR:Exception: Could not bind socket to 0.0.0.0:7396: Address already in use[0m
+[91m17:08:24:ERROR:Exception: Could not bind socket to 0.0.0.0:36330: Address already in use[0m
+17:09:12:Caught signal SIGHUP(1) on PID 474
+17:09:12:Exiting, please wait. . .
+17:09:14:Saving configuration to config.xml
+17:09:14:<config>
+17:09:14:  <!-- Folding Slots -->
+17:09:14:  <slot id='0' type='CPU'/>
+17:09:14:</config>
+17:09:14:Set client configured
+17:09:14:Clean exit
