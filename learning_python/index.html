@@ -221,6 +221,7 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#Difference-between-sorted()-and-sort()">Difference between sorted() and sort() </a></li>
 <li class="toc-entry toc-h2"><a href="#Looping-techniques">Looping techniques </a></li>
 <li class="toc-entry toc-h2"><a href="#More-on-conditions">More on conditions </a></li>
+<li class="toc-entry toc-h2"><a href="#Precedence-of-operators">Precedence of operators </a></li>
 <li class="toc-entry toc-h2"><a href="#What's-left-to-read-in-this-chapter?">What&#39;s left to read in this chapter? </a></li>
 </ul>
 </li>
@@ -4167,10 +4168,22 @@ pear
 <li>operators <strong>is and is not</strong> compare whether two objects are equal or not; this only matters for mutable objects like lists</li>
 <li>all comparison operators have the same priority, which is lower than that of all numerical operators</li>
 <li>comparisons can be chained, a &lt; b == c tests whether a is less than b and moreover b equals c</li>
-<li>not has the highest priority and or has the lowest</li>
+<li>
+<code>not</code> has the highest priority and <code>or</code> has the lowest</li>
 <li>the boolean operators and &amp; or are so-called short circuit operators. Evaluated from left to right and evaluation stops as soon as the outcome is determined</li>
 <li>when used as a general value and not as a boolean, the return value of short-circuit operators is the last evaluated argument</li>
 </ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Precedence-of-operators">
+<a class="anchor" href="#Precedence-of-operators" aria-hidden="true"><span class="octicon octicon-link"></span></a>Precedence of operators<a class="anchor-link" href="#Precedence-of-operators"> </a>
+</h2>
+<p><img src="https://raw.githubusercontent.com/thecoducer/python_programs/master/Images/precedence_table.png" alt=""></p>
 
 </div>
 </div>
@@ -4415,7 +4428,7 @@ This does not introduce the module name from which the imports are taken in the 
 <pre>
 <span class="ansi-red-fg">---------------------------------------------------------------------------</span>
 <span class="ansi-red-fg">ValueError</span>                                Traceback (most recent call last)
-<span class="ansi-green-fg">&lt;ipython-input-111-e64a5f1e21b3&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
+<span class="ansi-green-fg">&lt;ipython-input-1-e64a5f1e21b3&gt;</span> in <span class="ansi-cyan-fg">&lt;module&gt;</span>
 <span class="ansi-green-intense-fg ansi-bold">      8</span> <span class="ansi-green-fg">if</span> __name__ <span class="ansi-blue-fg">==</span> <span class="ansi-blue-fg">"__main__"</span><span class="ansi-blue-fg">:</span>
 <span class="ansi-green-intense-fg ansi-bold">      9</span>     <span class="ansi-green-fg">import</span> sys
 <span class="ansi-green-fg">---&gt; 10</span><span class="ansi-red-fg">     </span>add<span class="ansi-blue-fg">(</span>int<span class="ansi-blue-fg">(</span>sys<span class="ansi-blue-fg">.</span>argv<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">1</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">,</span> int<span class="ansi-blue-fg">(</span>sys<span class="ansi-blue-fg">.</span>argv<span class="ansi-blue-fg">[</span><span class="ansi-cyan-fg">2</span><span class="ansi-blue-fg">]</span><span class="ansi-blue-fg">)</span><span class="ansi-blue-fg">)</span>
