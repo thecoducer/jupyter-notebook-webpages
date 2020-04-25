@@ -360,7 +360,7 @@ pre { margin-bottom: 1.5rem !important; }
 
 .post-title { margin-top: .5rem !important; }
 
-ul { margin-bottom: 15px; }
+ul, ol { margin-bottom: 15px; }
 
 li h3, li h4 { margin-top: .05rem !important; margin-bottom: .05rem !important; }
 
