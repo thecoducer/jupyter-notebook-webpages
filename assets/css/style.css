@@ -1,3 +1,4 @@
+@import url("https://fonts.googleapis.com/css?family=Source+Sans+Pro&display=swap");
 .highlight .c { color: #998; font-style: italic; }
 
 .highlight .err { color: #a61717; background-color: #e3d2d2; }
@@ -337,9 +338,9 @@ table td { border: 1px solid #e8e8e8; }
 
 .post figcaption { text-align: center; font-size: .8rem; font-style: italic; color: light-grey; }
 
-.page-content { -webkit-font-smoothing: antialiased !important; text-rendering: optimizeLegibility !important; font-family: "Segoe UI", SegoeUI, Roboto, "Segoe WP", "Helvetica Neue", "Helvetica", "Tahoma", "Arial", sans-serif !important; font-size: 18px; }
+.page-content { -webkit-font-smoothing: antialiased !important; text-rendering: optimizeLegibility !important; font-family: 'Source Sans Pro', sans-serif; font-size: 16px; }
 
-.post-content p, .post-content li { font-size: 18px; color: #515151; }
+.post-content p, .post-content li { font-size: 16px; color: #515151; }
 
 .post-link { font-weight: normal; }
 
