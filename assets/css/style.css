@@ -430,6 +430,8 @@ table td { text-overflow: ellipsis; overflow: hidden; max-width: 15em; }
 
 /*-----------------------------------*/
 /*----- ADD YOUR STYLES BELOW -------*/
+ul { margin-bottom: 15px; }
+
 .highlight .hll { background-color: #ffffcc; }
 
 .highlight .c { color: #aaaaaa; font-style: italic; }
