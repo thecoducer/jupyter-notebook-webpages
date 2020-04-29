@@ -114,7 +114,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      35 min read
+      36 min read
     
 </span></p>
 
@@ -250,7 +250,9 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#Types-of-namespaces">Types of namespaces </a></li>
 <li class="toc-entry toc-h2"><a href="#Lifetime-of-a-namespace">Lifetime of a namespace </a></li>
 <li class="toc-entry toc-h2"><a href="#Scope-and-its-types">Scope and its types </a></li>
-<li class="toc-entry toc-h2"><a href="#Are-there-private-variables-in-python?-What-is-mangling?">Are there private variables in python? What is mangling? </a></li>
+<li class="toc-entry toc-h2"><a href="#Are-there-private-variables-in-python?-What-is-name-mangling?">Are there private variables in python? What is name mangling? </a></li>
+<li class="toc-entry toc-h2"><a href="#How-is-encapsulation-achieved-in-python?">How is encapsulation achieved in python? </a></li>
+<li class="toc-entry toc-h2"><a href="#A-First-Look-at-Classes">A First Look at Classes </a></li>
 </ul>
 </li>
 </ul><!--
@@ -2345,7 +2347,8 @@ It's not a strong number.
 <div class="text_cell_render border-box-sizing rendered_html">
 <ul>
 <li>The keyword def introduces a function definition. It must be followed by the function name and the parenthesized list of formal parameters. The statements that form the body of the function start at the next line, and must be indented.</li>
-<li>The first statement of the function body can optionally be a string literal; this string literal is the function’s documentation string, or docstring.</li>
+<li>The first statement of the function body can optionally be a string literal; this string literal is the function’s documentation string, or docstring like <code>"""This function parses JSON"""</code>
+</li>
 <li>The execution of a function introduces a new symbol table used for the local variables of the function.</li>
 <li>The actual parameters (arguments) to a function call are introduced in the local symbol table of the called function when it is called; thus, arguments are passed using <strong>call by value</strong> (where the value is always an object reference, not the value of the object).</li>
 <li>In fact, even functions without a return statement do return a value, albeit a rather boring one. <strong>This value is called None (it’s a built-in name)</strong>. Writing the value None is normally suppressed by the interpreter if it would be the only value written.</li>
@@ -5133,6 +5136,15 @@ Dcab       =    8637678
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A special quirk of Python is that – if no global or nonlocal statement is in effect – assignments to names always go into the innermost scope. Assignments do not copy data — they just bind names to objects. The same is true for deletions: the statement del x removes the binding of x from the namespace referenced by the local scope. In fact, all operations that introduce new names use the local scope: in particular, import statements and function definitions bind the module or function name in the local scope.</p>
+<p>The global statement can be used to indicate that particular variables live in the global scope and should be rebound there; the nonlocal statement indicates that particular variables live in an enclosing scope and should be rebound there.</p>
+
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -5219,11 +5231,66 @@ Dcab       =    8637678
 </div>
     
 
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># using global and nonlocal variables</span>
+<span class="k">def</span> <span class="nf">scope_test</span><span class="p">():</span>
+    <span class="k">def</span> <span class="nf">do_local</span><span class="p">():</span>
+        <span class="n">spam</span> <span class="o">=</span> <span class="s2">"local spam"</span>
+
+    <span class="k">def</span> <span class="nf">do_nonlocal</span><span class="p">():</span>
+        <span class="k">nonlocal</span> <span class="n">spam</span>
+        <span class="n">spam</span> <span class="o">=</span> <span class="s2">"nonlocal spam"</span>
+
+    <span class="k">def</span> <span class="nf">do_global</span><span class="p">():</span>
+        <span class="k">global</span> <span class="n">spam</span>
+        <span class="n">spam</span> <span class="o">=</span> <span class="s2">"global spam"</span>
+
+    <span class="n">spam</span> <span class="o">=</span> <span class="s2">"test spam"</span>
+    <span class="n">do_local</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"After local assignment:"</span><span class="p">,</span> <span class="n">spam</span><span class="p">)</span>
+    <span class="n">do_nonlocal</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"After nonlocal assignment:"</span><span class="p">,</span> <span class="n">spam</span><span class="p">)</span>
+    <span class="n">do_global</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"After global assignment:"</span><span class="p">,</span> <span class="n">spam</span><span class="p">)</span>
+
+<span class="n">scope_test</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">"In global scope:"</span><span class="p">,</span> <span class="n">spam</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>After local assignment: test spam
+After nonlocal assignment: nonlocal spam
+After global assignment: nonlocal spam
+In global scope: global spam
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>A special quirk of Python is that – if no global or nonlocal statement is in effect – assignments to names always go into the innermost scope. Assignments do not copy data — they just bind names to objects. The same is true for deletions: the statement del x removes the binding of x from the namespace referenced by the local scope. In fact, all operations that introduce new names use the local scope: in particular, import statements and function definitions bind the module or function name in the local scope.</p>
-<p>The global statement can be used to indicate that particular variables live in the global scope and should be rebound there; the nonlocal statement indicates that particular variables live in an enclosing scope and should be rebound there.</p>
+<p><em>Note how the local assignment (which is default) didn’t change scope_test’s binding of spam. The nonlocal assignment changed scope_test’s binding of spam, and the global assignment changed the module-level binding.</em></p>
 
 </div>
 </div>
@@ -5231,14 +5298,53 @@ Dcab       =    8637678
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Are-there-private-variables-in-python?-What-is-mangling?">
-<a class="anchor" href="#Are-there-private-variables-in-python?-What-is-mangling?" aria-hidden="true"><span class="octicon octicon-link"></span></a>Are there private variables in python? What is mangling?<a class="anchor-link" href="#Are-there-private-variables-in-python?-What-is-mangling?"> </a>
+<h2 id="Are-there-private-variables-in-python?-What-is-name-mangling?">
+<a class="anchor" href="#Are-there-private-variables-in-python?-What-is-name-mangling?" aria-hidden="true"><span class="octicon octicon-link"></span></a>Are there private variables in python? What is name mangling?<a class="anchor-link" href="#Are-there-private-variables-in-python?-What-is-name-mangling?"> </a>
 </h2>
 <p>Read here <a href="https://www.geeksforgeeks.org/private-variables-python/?ref=rp">https://www.geeksforgeeks.org/private-variables-python/?ref=rp</a></p>
 
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="How-is-encapsulation-achieved-in-python?">
+<a class="anchor" href="#How-is-encapsulation-achieved-in-python?" aria-hidden="true"><span class="octicon octicon-link"></span></a>How is encapsulation achieved in python?<a class="anchor-link" href="#How-is-encapsulation-achieved-in-python?"> </a>
+</h2>
+<p>Read here <a href="https://www.geeksforgeeks.org/encapsulation-in-python/">https://www.geeksforgeeks.org/encapsulation-in-python/</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="A-First-Look-at-Classes">
+<a class="anchor" href="#A-First-Look-at-Classes" aria-hidden="true"><span class="octicon octicon-link"></span></a>A First Look at Classes<a class="anchor-link" href="#A-First-Look-at-Classes"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Car</span><span class="p">:</span>
+    <span class="n">brand</span> <span class="o">=</span> <span class="s2">"Hyundai"</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="s2">"S14"</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
 </div>
 
 
