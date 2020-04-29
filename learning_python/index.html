@@ -114,7 +114,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      33 min read
+      35 min read
     
 </span></p>
 
@@ -247,6 +247,10 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h1"><a href="#Classes">Classes </a>
 <ul>
 <li class="toc-entry toc-h2"><a href="#What-are-namespaces?">What are namespaces? </a></li>
+<li class="toc-entry toc-h2"><a href="#Types-of-namespaces">Types of namespaces </a></li>
+<li class="toc-entry toc-h2"><a href="#Lifetime-of-a-namespace">Lifetime of a namespace </a></li>
+<li class="toc-entry toc-h2"><a href="#Scope-and-its-types">Scope and its types </a></li>
+<li class="toc-entry toc-h2"><a href="#Are-there-private-variables-in-python?-What-is-mangling?">Are there private variables in python? What is mangling? </a></li>
 </ul>
 </li>
 </ul><!--
@@ -5092,6 +5096,145 @@ Dcab       =    8637678
 <p>A namespace is a mapping from names to objects. Most namespaces are currently implemented as Python dictionaries, but that’s normally not noticeable in any way (except for performance), and it may change in the future. Examples of namespaces are: the set of built-in names (containing functions such as <code>abs()</code>, and built-in exception names); the global names in a module; and the local names in a function invocation. In a sense the set of attributes of an object also form a namespace. The important thing to know about namespaces is that there is absolutely no relation between names in different namespaces; for instance, two different modules may both define a function <code>maximize</code> without confusion — users of the modules must prefix it with the module name.</p>
 <p>Suppose, this is the expression <code>z.real</code>, <code>real</code> is an attribute of the object <code>z</code>.</p>
 <p><code>modname.funcname</code>, <code>modname</code> is a module object and <code>funcname</code> is an attribute of it.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Types-of-namespaces">
+<a class="anchor" href="#Types-of-namespaces" aria-hidden="true"><span class="octicon octicon-link"></span></a>Types of namespaces<a class="anchor-link" href="#Types-of-namespaces"> </a>
+</h2>
+<p>When Python interpreter runs solely without and user-defined modules, methods, classes, etc. Some functions like print(), id() are always present, these are built in namespaces. When a user creates a module, a global namespace gets created, later creation of local functions creates the local namespace. The built-in namespace encompasses global namespace and global namespace encompasses local namespace.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Lifetime-of-a-namespace">
+<a class="anchor" href="#Lifetime-of-a-namespace" aria-hidden="true"><span class="octicon octicon-link"></span></a>Lifetime of a namespace<a class="anchor-link" href="#Lifetime-of-a-namespace"> </a>
+</h2>
+<p>A lifetime of a namespace depends upon the scope of objects, if the scope of an object ends, the lifetime of that namespace comes to an end. Hence, it is not possible to access inner namespace’s objects from an outer namespace.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Scope-and-its-types">
+<a class="anchor" href="#Scope-and-its-types" aria-hidden="true"><span class="octicon octicon-link"></span></a>Scope and its types<a class="anchor-link" href="#Scope-and-its-types"> </a>
+</h2>
+<p>Read here <a href="https://www.geeksforgeeks.org/python-scope-of-variables/?ref=rp">https://www.geeksforgeeks.org/python-scope-of-variables/?ref=rp</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># using nonlocal variables</span>
+
+<span class="k">def</span> <span class="nf">outer</span><span class="p">():</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">5</span>
+
+    <span class="k">def</span> <span class="nf">inner</span><span class="p">():</span>
+        <span class="k">nonlocal</span> <span class="n">a</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="mi">10</span>
+
+    <span class="n">inner</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Value of a using nonlocal is : "</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+
+<span class="n">outer</span><span class="p">()</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Value of a using nonlocal is :  10
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># without using nonlocal variables</span>
+
+<span class="k">def</span> <span class="nf">outer</span><span class="p">():</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">4</span>
+    
+    <span class="k">def</span> <span class="nf">inner</span><span class="p">():</span>
+        <span class="c1"># here a local copy of a is being created</span>
+        <span class="n">a</span> <span class="o">=</span> <span class="mi">6</span>
+        
+    <span class="n">inner</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"Value of a without using nonlocal is : "</span><span class="p">,</span> <span class="n">a</span><span class="p">)</span>
+    
+<span class="n">outer</span><span class="p">()</span>      
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Value of a without using nonlocal is :  4
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A special quirk of Python is that – if no global or nonlocal statement is in effect – assignments to names always go into the innermost scope. Assignments do not copy data — they just bind names to objects. The same is true for deletions: the statement del x removes the binding of x from the namespace referenced by the local scope. In fact, all operations that introduce new names use the local scope: in particular, import statements and function definitions bind the module or function name in the local scope.</p>
+<p>The global statement can be used to indicate that particular variables live in the global scope and should be rebound there; the nonlocal statement indicates that particular variables live in an enclosing scope and should be rebound there.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Are-there-private-variables-in-python?-What-is-mangling?">
+<a class="anchor" href="#Are-there-private-variables-in-python?-What-is-mangling?" aria-hidden="true"><span class="octicon octicon-link"></span></a>Are there private variables in python? What is mangling?<a class="anchor-link" href="#Are-there-private-variables-in-python?-What-is-mangling?"> </a>
+</h2>
+<p>Read here <a href="https://www.geeksforgeeks.org/private-variables-python/?ref=rp">https://www.geeksforgeeks.org/private-variables-python/?ref=rp</a></p>
 
 </div>
 </div>
