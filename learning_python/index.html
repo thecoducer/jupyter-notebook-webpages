@@ -114,7 +114,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      36 min read
+      41 min read
     
 </span></p>
 
@@ -252,7 +252,17 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h2"><a href="#Scope-and-its-types">Scope and its types </a></li>
 <li class="toc-entry toc-h2"><a href="#Are-there-private-variables-in-python?-What-is-name-mangling?">Are there private variables in python? What is name mangling? </a></li>
 <li class="toc-entry toc-h2"><a href="#How-is-encapsulation-achieved-in-python?">How is encapsulation achieved in python? </a></li>
-<li class="toc-entry toc-h2"><a href="#A-First-Look-at-Classes">A First Look at Classes </a></li>
+<li class="toc-entry toc-h2"><a href="#Class-objects">Class objects </a></li>
+<li class="toc-entry toc-h2"><a href="#Constructors-in-Python.-Really?">Constructors in Python. Really? </a></li>
+<li class="toc-entry toc-h2"><a href="#Method-objects">Method objects </a></li>
+<li class="toc-entry toc-h2"><a href="#Class-and-instance-variables">Class and instance variables </a></li>
+<li class="toc-entry toc-h2"><a href="#Random-remarks">Random remarks </a></li>
+<li class="toc-entry toc-h2"><a href="#Inheritance">Inheritance </a></li>
+<li class="toc-entry toc-h2"><a href="#Multiple-inheritance">Multiple inheritance </a></li>
+<li class="toc-entry toc-h2"><a href="#Something-similar-to-C's-struct">Something similar to C&#39;s struct </a></li>
+<li class="toc-entry toc-h2"><a href="#Iterator-for-your-own-class">Iterator for your own class </a></li>
+<li class="toc-entry toc-h2"><a href="#Generators">Generators </a></li>
+<li class="toc-entry toc-h2"><a href="#Generator-expressions">Generator expressions </a></li>
 </ul>
 </li>
 </ul><!--
@@ -4346,14 +4356,12 @@ Old
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Import this file with the following command: \
-<code>import addsub</code> \
-invoke add/subtract method inside the interpreter by:  \
-<code>addsub.add(50, 20)</code></p>
-<p>if you intend to use a method often then assign it a local name: \
-<code>add = addsub.add</code> \
-then invoke it \
-<code>add(25, 20)</code></p>
+<p>Import this file with the following command:</p>
+<p><code>import addsub</code></p>
+<p>invoke add/subtract method inside the interpreter by:</p>
+<p><code>addsub.add(50, 20)</code></p>
+<p>if you intend to use a method often then assign it a local name:</p>
+<p><code>add = addsub.add</code> then invoke it <code>add(25, 20)</code></p>
 
 </div>
 </div>
@@ -4366,6 +4374,7 @@ then invoke it \
 </h2>
 <p>They are the methods having two prefix and suffix underscores in the method name. Dunder here means “Double Under (Underscores)”. These are commonly used for operator overloading.</p>
 <p>The <code>__init__</code> method for initialization is invoked without any call, when an instance of a class is created, like constructors in certain other programming languages such as C++, Java, C#, PHP etc. These methods are the reason we can add two strings with ‘+’ operator without any explicit typecasting.</p>
+<p>Meaning of underscores in Pyhton: <a href="https://dbader.org/blog/meaning-of-underscores-in-python">https://dbader.org/blog/meaning-of-underscores-in-python</a></p>
 
 </div>
 </div>
@@ -5085,6 +5094,8 @@ Dcab       =    8637678
 <a class="anchor" href="#Classes" aria-hidden="true"><span class="octicon octicon-link"></span></a>Classes<a class="anchor-link" href="#Classes"> </a>
 </h1>
 <p><a href="https://docs.python.org/3/tutorial/classes.html">https://docs.python.org/3/tutorial/classes.html</a></p>
+<p>In this chapter, we'll get to know how OOP concepts are being implemented in Python.</p>
+<p>Here is an interesting article on comparison between OOP in Python and Java: <a href="https://realpython.com/oop-in-python-vs-java/">https://realpython.com/oop-in-python-vs-java/</a></p>
 
 </div>
 </div>
@@ -5302,6 +5313,7 @@ In global scope: global spam
 <a class="anchor" href="#Are-there-private-variables-in-python?-What-is-name-mangling?" aria-hidden="true"><span class="octicon octicon-link"></span></a>Are there private variables in python? What is name mangling?<a class="anchor-link" href="#Are-there-private-variables-in-python?-What-is-name-mangling?"> </a>
 </h2>
 <p>Read here <a href="https://www.geeksforgeeks.org/private-variables-python/?ref=rp">https://www.geeksforgeeks.org/private-variables-python/?ref=rp</a></p>
+<p>“Private” instance variables that cannot be accessed except from inside an object don’t exist in Python. However, there is a convention that is followed by most Python code: a name prefixed with an underscore (e.g. _spam) should be treated as a non-public part of the API (whether it is a function, a method or a data member).</p>
 
 </div>
 </div>
@@ -5320,8 +5332,286 @@ In global scope: global spam
 <div class="cell border-box-sizing text_cell rendered">
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="A-First-Look-at-Classes">
-<a class="anchor" href="#A-First-Look-at-Classes" aria-hidden="true"><span class="octicon octicon-link"></span></a>A First Look at Classes<a class="anchor-link" href="#A-First-Look-at-Classes"> </a>
+<h2 id="Class-objects">
+<a class="anchor" href="#Class-objects" aria-hidden="true"><span class="octicon octicon-link"></span></a>Class objects<a class="anchor-link" href="#Class-objects"> </a>
+</h2>
+<p>Class objects support two kinds of operations: attribute references and instantiation.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Car</span><span class="p">:</span> <span class="c1"># class definiton</span>
+    <span class="sd">"""A class called Car"""</span>
+    <span class="c1"># class attributes or class variables</span>
+    <span class="n">brand</span> <span class="o">=</span> <span class="s2">"Hyundai"</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="s2">"S14"</span>
+    
+    <span class="c1"># methods</span>
+    <span class="k">def</span> <span class="nf">printDetails</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">brand</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">"</span><span class="se">\n</span><span class="s2">"</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>
+        
+<span class="c1"># instantiating the class &amp; assigning the </span>
+<span class="c1"># object reference to the variable c</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">Car</span><span class="p">()</span>
+<span class="n">c</span><span class="o">.</span><span class="n">printDetails</span><span class="p">()</span> <span class="c1"># method call</span>
+<span class="c1">#attribute references</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">brand</span> <span class="o">+</span> <span class="s2">" "</span> <span class="o">+</span> <span class="n">c</span><span class="o">.</span><span class="n">model</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">printDetails</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="vm">__doc__</span><span class="p">)</span> <span class="c1"># __doc__ is also a valid attribute</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Hyundai
+S14
+Hyundai S14
+&lt;bound method Car.printDetails of &lt;__main__.Car object at 0x7fbc859a2dd0&gt;&gt;
+A class called Car
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Data attributes need not be declared; like local variables, they spring into existence when they are first assigned to.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">c</span><span class="o">.</span><span class="n">color</span> <span class="o">=</span> <span class="s2">"black"</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">color</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>black
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Constructors-in-Python.-Really?">
+<a class="anchor" href="#Constructors-in-Python.-Really?" aria-hidden="true"><span class="octicon octicon-link"></span></a>Constructors in Python. Really?<a class="anchor-link" href="#Constructors-in-Python.-Really?"> </a>
+</h2>
+<p>The <code>__init__</code> method is similar to what constructors do. They initialize object instances at the time when class instantiation is done.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Complex</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">realpart</span><span class="p">,</span> <span class="n">imagpart</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">r</span> <span class="o">=</span> <span class="n">realpart</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">i</span> <span class="o">=</span> <span class="n">imagpart</span>
+        
+<span class="n">cn</span> <span class="o">=</span> <span class="n">Complex</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">cn</span><span class="o">.</span><span class="n">r</span><span class="p">)</span> <span class="o">+</span> <span class="s2">" + "</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">cn</span><span class="o">.</span><span class="n">i</span><span class="p">)</span> <span class="o">+</span> <span class="s2">"i"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>3 + 8i
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Method-objects">
+<a class="anchor" href="#Method-objects" aria-hidden="true"><span class="octicon octicon-link"></span></a>Method objects<a class="anchor-link" href="#Method-objects"> </a>
+</h2>
+<p>Here is another way of invoking a method</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">m</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">printDetails</span> <span class="c1"># this is a method object that is assigned to m</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">m</span><span class="p">())</span> <span class="c1"># calling it</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Hyundai
+S14
+None
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><strong>The special thing about methods is that the instance object is passed as the first argument of the function.</strong></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Class-and-instance-variables">
+<a class="anchor" href="#Class-and-instance-variables" aria-hidden="true"><span class="octicon octicon-link"></span></a>Class and instance variables<a class="anchor-link" href="#Class-and-instance-variables"> </a>
+</h2>
+<p>Generally speaking, instance variables are for data unique to each instance and class variables are for attributes and methods shared by all instances of the class.</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">PinkFloyd</span><span class="p">:</span>
+    <span class="c1"># class variables</span>
+    
+    <span class="n">genre</span> <span class="o">=</span> <span class="s2">"Psychedelic rock"</span> <span class="c1"># attribute</span>
+    
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span> <span class="c1"># method</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">name</span> <span class="c1"># instance variable </span>
+        
+<span class="n">d</span> <span class="o">=</span> <span class="n">PinkFloyd</span><span class="p">(</span><span class="s2">"David Gilmour"</span><span class="p">)</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">PinkFloyd</span><span class="p">(</span><span class="s2">"Richard Wright"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">genre</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">genre</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">r</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Psychedelic rock
+Psychedelic rock
+David Gilmour
+Richard Wright
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Random-remarks">
+<a class="anchor" href="#Random-remarks" aria-hidden="true"><span class="octicon octicon-link"></span></a>Random remarks<a class="anchor-link" href="#Random-remarks"> </a>
+</h2>
+<p><a href="https://docs.python.org/3/tutorial/classes.html#random-remarks">https://docs.python.org/3/tutorial/classes.html#random-remarks</a></p>
+<ul>
+<li>Classes are not usable to implement pure abstract data types. In fact, nothing in Python makes it possible to enforce data hiding - it is all based upon convention.</li>
+<li>Often, the first argument of a method is called self. This is nothing more than a convention: the name self has absolutely no special meaning to Python. Note, however, that by not following the convention your code may be less readable to other Python programmers</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Inheritance">
+<a class="anchor" href="#Inheritance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Inheritance<a class="anchor-link" href="#Inheritance"> </a>
 </h2>
 </div>
 </div>
@@ -5333,12 +5623,339 @@ In global scope: global spam
 
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Car</span><span class="p">:</span>
-    <span class="n">brand</span> <span class="o">=</span> <span class="s2">"Hyundai"</span>
-    <span class="n">model</span> <span class="o">=</span> <span class="s2">"S14"</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Animal</span><span class="p">:</span> <span class="c1"># Base class</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">weight</span><span class="p">,</span> <span class="n">height</span><span class="p">):</span>
+        <span class="c1"># private instance variables</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_weight</span> <span class="o">=</span> <span class="n">weight</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_height</span> <span class="o">=</span> <span class="n">height</span>
+        
+    <span class="k">def</span> <span class="nf">makeNoise</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">"I'm too generic to make any noise."</span>
+    
+    <span class="k">def</span> <span class="nf">getWeight</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_weight</span>
+    
+    <span class="k">def</span> <span class="nf">getHeight</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_height</span>
+        
+<span class="k">class</span> <span class="nc">Dog</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span> <span class="c1"># Derived class inheriting Animal class</span>
+    <span class="k">def</span> <span class="nf">makeNoise</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">"Bark! Bark!"</span>
+    
+<span class="k">class</span> <span class="nc">Cat</span><span class="p">(</span><span class="n">Animal</span><span class="p">):</span> <span class="c1"># Derived class inheriting Animal class</span>
+    <span class="k">def</span> <span class="nf">makeNoise</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s2">"Meow! Meow!"</span>
+    
+<span class="n">a</span> <span class="o">=</span> <span class="n">Animal</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">d</span> <span class="o">=</span> <span class="n">Dog</span><span class="p">(</span><span class="mi">50</span><span class="p">,</span> <span class="mi">60</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">Cat</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">22</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">makeNoise</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">d</span><span class="o">.</span><span class="n">makeNoise</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">makeNoise</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="n">getWeight</span><span class="p">(),</span> <span class="n">a</span><span class="o">.</span><span class="n">getHeight</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="o">.</span><span class="n">getWeight</span><span class="p">(),</span> <span class="n">c</span><span class="o">.</span><span class="n">getHeight</span><span class="p">())</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">Cat</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">issubclass</span><span class="p">(</span><span class="n">Dog</span><span class="p">,</span> <span class="n">Cat</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">issubclass</span><span class="p">(</span><span class="n">Dog</span><span class="p">,</span> <span class="n">Animal</span><span class="p">))</span>
 </pre></div>
 
     </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>I'm too generic to make any noise.
+Bark! Bark!
+Meow! Meow!
+0 0
+15 22
+True
+False
+True
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>
+<code>class DerivedClassName(modname.BaseClassName)</code> if base class is in some other modules</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Multiple-inheritance">
+<a class="anchor" href="#Multiple-inheritance" aria-hidden="true"><span class="octicon octicon-link"></span></a>Multiple inheritance<a class="anchor-link" href="#Multiple-inheritance"> </a>
+</h2>
+<p><code>class DerivedClassName(Base1, Base2, Base3):</code></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Something-similar-to-C's-struct">
+<a class="anchor" href="#Something-similar-to-C's-struct" aria-hidden="true"><span class="octicon octicon-link"></span></a>Something similar to C's struct<a class="anchor-link" href="#Something-similar-to-C's-struct"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Employee</span><span class="p">:</span> <span class="c1"># this is an empty class definition</span>
+    <span class="k">pass</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"Name: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2"> </span><span class="se">\n</span><span class="s2">Dept: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">dept</span><span class="si">}</span><span class="se">\n</span><span class="s2">Salary: </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">salary</span><span class="si">}</span><span class="s2">"</span>
+
+<span class="n">john</span> <span class="o">=</span> <span class="n">Employee</span><span class="p">()</span>  <span class="c1"># Create an empty employee record</span>
+
+<span class="c1"># Fill the fields of the record</span>
+<span class="n">john</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="s1">'John Doe'</span>
+<span class="n">john</span><span class="o">.</span><span class="n">dept</span> <span class="o">=</span> <span class="s1">'computer lab'</span>
+<span class="n">john</span><span class="o">.</span><span class="n">salary</span> <span class="o">=</span> <span class="mi">1000</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">john</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>Name: John Doe 
+Dept: computer lab
+Salary: 1000
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Iterator-for-your-own-class">
+<a class="anchor" href="#Iterator-for-your-own-class" aria-hidden="true"><span class="octicon octicon-link"></span></a>Iterator for your own class<a class="anchor-link" href="#Iterator-for-your-own-class"> </a>
+</h2>
+<p>Behind the scenes, the for statement calls <code>iter()</code> on the container object. The function returns an iterator object that defines the method <code>__next__()</code> which accesses elements in the container one at a time. When there are no more elements, <code>__next__()</code> raises a <code>StopIteration exception</code> which tells the for loop to terminate. You can call the <code>__next__()</code> method using the next() built-in function</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">class</span> <span class="nc">Traverse</span><span class="p">:</span>
+    <span class="sd">"""Iterator for looping over a sequence"""</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="n">data</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">curr</span> <span class="o">=</span> <span class="mi">0</span>
+        
+    <span class="k">def</span> <span class="fm">__iter__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span>
+    
+    <span class="k">def</span> <span class="fm">__next__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">curr</span> <span class="o">==</span> <span class="bp">self</span><span class="o">.</span><span class="n">index</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">StopIteration</span>
+        
+        <span class="bp">self</span><span class="o">.</span><span class="n">curr</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">curr</span> <span class="o">+</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">curr</span> <span class="o">-</span> <span class="mi">1</span><span class="p">]</span>
+    
+    
+<span class="n">x</span> <span class="o">=</span> <span class="n">Traverse</span><span class="p">(</span><span class="s2">"mayukh"</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">x</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>m
+a
+y
+u
+k
+h
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Generators">
+<a class="anchor" href="#Generators" aria-hidden="true"><span class="octicon octicon-link"></span></a>Generators<a class="anchor-link" href="#Generators"> </a>
+</h2>
+<p>Generators are a simple and powerful tool for creating iterators. They are written like regular functions but use the yield statement whenever they want to return data. Each time next() is called on it, the generator resumes where it left off (it remembers all the data values and which statement was last executed).</p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">traverse</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">index</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">),</span> <span class="mi">1</span><span class="p">):</span>
+        <span class="k">yield</span> <span class="n">data</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+        
+<span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">traverse</span><span class="p">(</span><span class="s2">"earth"</span><span class="p">):</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">c</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>e
+a
+r
+t
+h
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<ul>
+<li>
+<p>Anything that can be done with generators can also be done with class-based iterators as described in the previous section. What makes generators so compact is that the <code>__iter__()</code> and <code>__next__()</code> methods are created automatically.</p>
+</li>
+<li>
+<p>Another key feature is that the local variables and execution state are automatically saved between calls. This made the function easier to write and much more clear than an approach using instance variables like self.index and self.data.</p>
+</li>
+<li>
+<p>In addition to automatic method creation and saving program state, when generators terminate, they automatically raise StopIteration. In combination, these features make it easy to create iterators with no more effort than writing a regular function.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Generator-expressions">
+<a class="anchor" href="#Generator-expressions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Generator expressions<a class="anchor-link" href="#Generator-expressions"> </a>
+</h2>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1"># other comprehensions</span>
+<span class="n">xvec</span> <span class="o">=</span> <span class="p">[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">30</span><span class="p">]</span>
+<span class="n">yvec</span> <span class="o">=</span> <span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">x</span><span class="o">*</span><span class="n">y</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">xvec</span><span class="p">,</span> <span class="n">yvec</span><span class="p">)))</span> <span class="c1"># dot product</span>
+
+<span class="c1"># unique_words = set(word for line in page  for word in line.split())</span>
+<span class="c1"># valedictorian = max((student.gpa, student.name) for student in graduates)</span>
+
+<span class="c1"># generator expressions</span>
+<span class="n">data</span> <span class="o">=</span> <span class="s1">'golf'</span>
+<span class="nb">list</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>260
+</pre>
+</div>
+</div>
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>['f', 'l', 'o', 'g']</pre>
+</div>
+
+</div>
+
 </div>
 </div>
 
