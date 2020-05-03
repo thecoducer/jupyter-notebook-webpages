@@ -2,10 +2,10 @@
   
     
         "post0": {
-            "title": "",
+            "title": "Exploring few tools used in data science",
             "content": "Why Numpy is faster than lists? . Numpy is faster than lists since Numpy elements have fixed data type. | Numpy has contiguous memory | No type checking when reading objects | Read bytes of memory faster | . Applications of Numpy: . Mathematics (MATLAB replacement) | Plotting (using matloptlib) | Backend (Pandas, Connect 4, Digital photography) | Machine learning (Numpy helps to give a foundation to tensors) | . Importing Numpy . import numpy as np . 1D matrix . a = np.array([45, 58, 96], dtype=&quot;int16&quot;) print(a) . [45 58 96] . 2D matrix . b = np.array([[4, 5, 8], [2, 7, 6]]) print(b) b.ndim . [[4 5 8] [2 7 6]] . 2 . 3D matrix . c = np.array([[1.23, 2.23, 3.89], [9, 6, 9], [7, 2, 4]]) print(c) c.shape . [[1.23 2.23 3.89] [9. 6. 9. ] [7. 2. 4. ]] . (3, 3) . # Get dimension c.ndim . 2 . # Get shape or n * n? b.shape . (2, 3) . # Get type print(a.dtype) print(c.dtype) . int16 float64 . # Get bytes of memory it takes print(b.itemsize) print(a.itemsize) print(c.itemsize) # 2 bytes for int16 # 4 bytes for int32 # 8 bytes for int64 # 8 bytes for float too . 8 2 8 . # Get length of np array print(a.size) print(b.size) print(c.size) . 3 6 9 . # Get total size print(a.size * a.itemsize) # other way to do this print(a.nbytes) . 6 6 . Acccessing/Changing specific elements, rows, columns etc. . d = np.array([[1, 2, 3, 4, 5, 6, 7], [8, 9, 10, 11, 12, 13, 14]]) print(d) . [[ 1 2 3 4 5 6 7] [ 8 9 10 11 12 13 14]] . # Get a specific element - [r, c] d[0, 3] . 4 . # Get a specific row print(d[0, :]) # first row print(d[0, 1:6]) . [1 2 3 4 5 6 7] [2 3 4 5 6] . # Get a specific column print(d[:, 2]) # third column . [ 3 10] . # Getting little more fancy [startindex:endindex:stepsize] print(d[0, 1:-1:2]) . [2 4 6] . # Replace elements d[1, 4] = 55 print(d) . [[ 1 2 3 4 5 6 7] [ 8 9 10 11 55 13 14]] . d[:, 2] = [117, 17] print(d) . [[ 1 2 117 4 5 6 7] [ 8 9 17 11 55 13 14]] . # Just another matrix f = np.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]]) print(f) . [[[1 2] [3 4]] [[5 6] [7 8]]] . print(f[0, 1, 0]) # accessing a elements is easy if we do it pathwise . 3 . print(f[:, ]) . [[[1 2] [3 4]] [[5 6] [7 8]]] .",
-            "url": "https://thecoducer.github.io/blog/2020/05/03/2020-05-03-Learning-NumPy.html",
-            "relUrl": "/2020/05/03/2020-05-03-Learning-NumPy.html",
+            "url": "https://thecoducer.github.io/blog/tools/libraries/2020/05/03/Learning-NumPy.html",
+            "relUrl": "/tools/libraries/2020/05/03/Learning-NumPy.html",
             "date": " • May 3, 2020"
         }
         
