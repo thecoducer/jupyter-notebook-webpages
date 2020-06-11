@@ -3,7 +3,7 @@
     
         "post0": {
             "title": "HackerRank Regex Solutions",
-            "content": ". Regex Problems . Backreferences To Failed Groups . https://www.hackerrank.com/challenges/backreferences-to-failed-groups/problem . Regex_Pattern = r&quot;^ d{2}(-?)( d{2} 1){2} d{2}$&quot; import re print(str(bool(re.search(Regex_Pattern, input()))).lower()) . 12-34-56-87 true .",
+            "content": ". Easy Problems . Backreferences To Failed Groups . https://www.hackerrank.com/challenges/backreferences-to-failed-groups/problem . Regex_Pattern = r&quot;^ d{2}(-?)( d{2} 1){2} d{2}$&quot; import re print(str(bool(re.search(Regex_Pattern, input()))).lower()) . 12-34-56-87 true . Forward References . https://www.hackerrank.com/challenges/forward-references/problem . Perl code: . $Regex_Pattern = &#39;^( 2tic|(tac))+$&#39;; $Test_String = &lt;STDIN&gt; ; if($Test_String =~ /$Regex_Pattern/){ print &quot;true&quot;; } else { print &quot;false&quot;; } . Without using forward reference: ^tac(tac(tic)?)*$ .",
             "url": "https://thecoducer.github.io/blog/hackerrank-regex-solutions/",
             "relUrl": "/hackerrank-regex-solutions/",
             "date": " • Jun 11, 2020"
