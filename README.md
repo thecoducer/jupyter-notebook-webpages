@@ -6,7 +6,7 @@
 
 https://thecoducer.github.io/blog/
 
-# My Tryst with Data Science
+# .ipynb viewer
 
 
 _powered by [fastpages](https://github.com/fastai/fastpages)_
