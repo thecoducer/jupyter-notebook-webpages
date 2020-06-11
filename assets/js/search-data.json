@@ -3,7 +3,7 @@
     
         "post0": {
             "title": "HackerRank Regex Solutions",
-            "content": "",
+            "content": ". Regex Problems . Backreferences To Failed Groups . https://www.hackerrank.com/challenges/backreferences-to-failed-groups/problem . Regex_Pattern = r&quot;^ d{2}(-?)( d{2} 1){2} d{2}$&quot; import re print(str(bool(re.search(Regex_Pattern, input()))).lower()) . 12-34-56-87 true .",
             "url": "https://thecoducer.github.io/blog/hackerrank-regex-solutions/",
             "relUrl": "/hackerrank-regex-solutions/",
             "date": " • Jun 11, 2020"
