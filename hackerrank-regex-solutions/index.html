@@ -114,7 +114,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      2 min read
     
 </span></p>
 
@@ -398,7 +398,7 @@ false
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Detect-HTML-links">Detect HTML links<a class="anchor-link" href="#Detect-HTML-links"> </a></h3><p><a href="https://www.hackerrank.com/challenges/detect-html-links/problem">https://www.hackerrank.com/challenges/detect-html-links/problem</a></p>
+<h3 id="1.-Detect-HTML-links">1. Detect HTML links<a class="anchor-link" href="#1.-Detect-HTML-links"> </a></h3><p><a href="https://www.hackerrank.com/challenges/detect-html-links/problem">https://www.hackerrank.com/challenges/detect-html-links/problem</a></p>
 
 </div>
 </div>
@@ -457,6 +457,44 @@ false
 </div>
 </div>
 
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.-IP-Address-Validation">2. IP Address Validation<a class="anchor-link" href="#2.-IP-Address-Validation"> </a></h3><p><a href="https://www.hackerrank.com/challenges/ip-address-validation/problem">https://www.hackerrank.com/challenges/ip-address-validation/problem</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">re</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">())):</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="nb">input</span><span class="p">()</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+    <span class="n">match_ipv4</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;^([0-9]|[01]?[0-9][0-9]|2[0-4][0-9]|25[0-5])(</span><span class="se">\\</span><span class="s1">.([0-9]|[01]?[0-9][0-9]|2[0-4][0-9]|25[0-5]))</span><span class="si">{3}</span><span class="s1">$&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+    <span class="n">match_ipv6</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s1">&#39;^([0-9a-fA-F]{1,4})(:([0-9a-fA-F]{1,4}))</span><span class="si">{7}</span><span class="s1">$&#39;</span><span class="p">,</span> <span class="n">data</span><span class="p">)</span>
+    
+    <span class="k">if</span> <span class="n">match_ipv4</span> <span class="o">==</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">match_ipv6</span> <span class="o">!=</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ip_ver</span> <span class="o">=</span> <span class="s2">&quot;IPv6&quot;</span>
+    <span class="k">elif</span> <span class="n">match_ipv4</span> <span class="o">!=</span> <span class="kc">None</span> <span class="ow">and</span> <span class="n">match_ipv6</span> <span class="o">==</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="n">ip_ver</span> <span class="o">=</span> <span class="s2">&quot;IPv4&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">ip_ver</span> <span class="o">=</span> <span class="s2">&quot;Neither&quot;</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">ip_ver</span><span class="p">)</span>
+</pre></div>
+
+    </div>
 </div>
 </div>
 
