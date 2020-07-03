@@ -1,0 +1,1145 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>HackerRank SQL Solutions | .ipynb viewer</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="HackerRank SQL Solutions" />
+<meta name="author" content="Mayukh Datta" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="My solutions to SQL problems on HackerRank" />
+<meta property="og:description" content="My solutions to SQL problems on HackerRank" />
+<link rel="canonical" href="https://thecoducer.github.io/blog/hackerrank-sql-solutions/" />
+<meta property="og:url" content="https://thecoducer.github.io/blog/hackerrank-sql-solutions/" />
+<meta property="og:site_name" content=".ipynb viewer" />
+<meta property="og:image" content="https://raw.githubusercontent.com/thecoducer/blog/master/images/tables-dribbble.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-07-03T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Mayukh Datta"},"description":"My solutions to SQL problems on HackerRank","@type":"BlogPosting","headline":"HackerRank SQL Solutions","url":"https://thecoducer.github.io/blog/hackerrank-sql-solutions/","datePublished":"2020-07-03T00:00:00-05:00","dateModified":"2020-07-03T00:00:00-05:00","image":"https://raw.githubusercontent.com/thecoducer/blog/master/images/tables-dribbble.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://thecoducer.github.io/blog/hackerrank-sql-solutions/"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/blog/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://thecoducer.github.io/blog/feed.xml" title=".ipynb viewer" /><!-- <link rel="shortcut icon" type="image/x-icon" href="/blog/images/favicon.ico"> -->
+<!-- Begin Jekyll SEO tag v2.6.1 -->
+<title>HackerRank SQL Solutions | .ipynb viewer</title>
+<meta name="generator" content="Jekyll v4.0.0" />
+<meta property="og:title" content="HackerRank SQL Solutions" />
+<meta name="author" content="Mayukh Datta" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="My solutions to SQL problems on HackerRank" />
+<meta property="og:description" content="My solutions to SQL problems on HackerRank" />
+<link rel="canonical" href="https://thecoducer.github.io/blog/hackerrank-sql-solutions/" />
+<meta property="og:url" content="https://thecoducer.github.io/blog/hackerrank-sql-solutions/" />
+<meta property="og:site_name" content=".ipynb viewer" />
+<meta property="og:image" content="https://raw.githubusercontent.com/thecoducer/blog/master/images/tables-dribbble.png" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2020-07-03T00:00:00-05:00" />
+<script type="application/ld+json">
+{"author":{"@type":"Person","name":"Mayukh Datta"},"description":"My solutions to SQL problems on HackerRank","@type":"BlogPosting","headline":"HackerRank SQL Solutions","url":"https://thecoducer.github.io/blog/hackerrank-sql-solutions/","datePublished":"2020-07-03T00:00:00-05:00","dateModified":"2020-07-03T00:00:00-05:00","image":"https://raw.githubusercontent.com/thecoducer/blog/master/images/tables-dribbble.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://thecoducer.github.io/blog/hackerrank-sql-solutions/"},"@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+
+<link href="https://unpkg.com/@primer/css/dist/primer.css" rel="stylesheet" />
+<link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css"><link type="application/atom+xml" rel="alternate" href="https://thecoducer.github.io/blog/feed.xml" title=".ipynb viewer" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.css" integrity="sha384-zB1R0rpPzHqg7Kpt0Aljp8JPLqbXI3bhnPWROx27a9N0Ll6ZP/+DiW/UqRcLbRjq" crossorigin="anonymous">
+    <script type="text/javascript" async src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML"> </script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/katex.min.js" integrity="sha384-y23I5Q6l+B6vatafAwxRu/0oK/79VlbSz7Q9aiSZUvyWYIYsd+qj+o24G5ZU2zJz" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.11.1/dist/contrib/auto-render.min.js" integrity="sha384-kWPLUVMOks5AQFrykwIup5lo0m3iMkkHrD0uJ4H5cjeGihAutqP0yW0J6dpFiVkI" crossorigin="anonymous"></script>
+    <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement( document.body, {
+        delimiters: [
+            {left: "$$", right: "$$", display: true},
+            {left: "[%", right: "%]", display: true},
+            {left: "$", right: "$", display: false}
+        ]}
+        );
+    });
+    </script>
+
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head><body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/blog/">.ipynb viewer</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/blog/about/">About</a><a class="page-link" href="/blog/search/">Search</a><a class="page-link" href="/blog/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">HackerRank SQL Solutions</h1><p class="page-description">My solutions to SQL problems on HackerRank</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2020-07-03T00:00:00-05:00" itemprop="datePublished">
+        Jul 3, 2020
+      </time>• 
+          <span itemprop="author" itemscope itemtype="http://schema.org/Person">
+            <span class="p-author h-card" itemprop="name">Mayukh Datta</span></span>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      3 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/blog/categories/#sql">sql</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-wrap flex-justify-end">
+          <div class="px-2">
+
+    <a href="https://github.com/thecoducer/blog/tree/master/_notebooks/2020-07-03-HackerRank-SQL-Solutions.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/blog/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/thecoducer/blog/blob/master/_notebooks/2020-07-03-HackerRank-SQL-Solutions.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/blog/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2020-07-03-HackerRank-SQL-Solutions.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><img src="https://raw.githubusercontent.com/thecoducer/blog/master/images/tables-dribbble.png" alt="" /></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Problems">Problems<a class="anchor-link" href="#Problems"> </a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="1.-Revising-the-Select-Query-I">1. Revising the Select Query I<a class="anchor-link" href="#1.-Revising-the-Select-Query-I"> </a></h3><p><a href="https://www.hackerrank.com/challenges/revising-the-select-query/problem">https://www.hackerrank.com/challenges/revising-the-select-query/problem</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">select</span> <span class="o">*</span> <span class="kn">from</span> <span class="nn">CITY</span> <span class="n">where</span> <span class="n">COUNTRYCODE</span><span class="o">=</span><span class="s1">&#39;USA&#39;</span> <span class="ow">and</span> <span class="n">POPULATION</span><span class="o">&gt;</span><span class="mi">100000</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="2.-Revising-the-Select-Query-II">2. Revising the Select Query II<a class="anchor-link" href="#2.-Revising-the-Select-Query-II"> </a></h3><p><a href="https://www.hackerrank.com/challenges/revising-the-select-query-2/problem">https://www.hackerrank.com/challenges/revising-the-select-query-2/problem</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">select</span> <span class="n">NAME</span> <span class="kn">from</span> <span class="nn">CITY</span> <span class="n">where</span> <span class="n">COUNTRYCODE</span><span class="o">=</span><span class="s1">&#39;USA&#39;</span> <span class="ow">and</span> <span class="n">POPULATION</span><span class="o">&gt;</span><span class="mi">120000</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="3.-Select-all">3. Select all<a class="anchor-link" href="#3.-Select-all"> </a></h3><p><a href="https://www.hackerrank.com/challenges/select-all-sql/problem">https://www.hackerrank.com/challenges/select-all-sql/problem</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">select</span> <span class="o">*</span> <span class="kn">from</span> <span class="nn">CITY</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="4.-Select-by-ID">4. Select by ID<a class="anchor-link" href="#4.-Select-by-ID"> </a></h3><p><a href="https://www.hackerrank.com/challenges/select-by-id/problem">https://www.hackerrank.com/challenges/select-by-id/problem</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">select</span> <span class="o">*</span> <span class="kn">from</span> <span class="nn">city</span> <span class="n">where</span> <span class="nb">id</span><span class="o">=</span><span class="mi">1661</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="5.-Japanese-Cities'-Attributes">5. Japanese Cities' Attributes<a class="anchor-link" href="#5.-Japanese-Cities'-Attributes"> </a></h3><p><a href="https://www.hackerrank.com/challenges/japanese-cities-attributes/problem">https://www.hackerrank.com/challenges/japanese-cities-attributes/problem</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">select</span> <span class="o">*</span> <span class="kn">from</span> <span class="nn">city</span> <span class="n">where</span> <span class="n">countrycode</span><span class="o">=</span><span class="s1">&#39;JPN&#39;</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="6.-Japanese-Cities'-Names">6. Japanese Cities' Names<a class="anchor-link" href="#6.-Japanese-Cities'-Names"> </a></h3><p><a href="https://www.hackerrank.com/challenges/japanese-cities-name/problem">https://www.hackerrank.com/challenges/japanese-cities-name/problem</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">select</span> <span class="n">name</span> <span class="kn">from</span> <span class="nn">city</span> <span class="n">where</span> <span class="n">countrycode</span><span class="o">=</span><span class="s1">&#39;JPN&#39;</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="7.-Weather-Observation-Station-1">7. Weather Observation Station 1<a class="anchor-link" href="#7.-Weather-Observation-Station-1"> </a></h3><p><a href="https://www.hackerrank.com/challenges/weather-observation-station-1/problem">https://www.hackerrank.com/challenges/weather-observation-station-1/problem</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">select</span> <span class="n">city</span><span class="p">,</span> <span class="n">state</span> <span class="kn">from</span> <span class="nn">station</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="8.-Weather-Observation-Station-3">8. Weather Observation Station 3<a class="anchor-link" href="#8.-Weather-Observation-Station-3"> </a></h3><p><a href="https://www.hackerrank.com/challenges/weather-observation-station-3/problem">https://www.hackerrank.com/challenges/weather-observation-station-3/problem</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">select</span> <span class="n">distinct</span> <span class="n">city</span> <span class="kn">from</span> <span class="nn">station</span> <span class="n">where</span> <span class="n">mod</span><span class="p">(</span><span class="nb">id</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="9.-Weather-Observation-Station-4">9. Weather Observation Station 4<a class="anchor-link" href="#9.-Weather-Observation-Station-4"> </a></h3><p><a href="https://www.hackerrank.com/challenges/weather-observation-station-4/problem">https://www.hackerrank.com/challenges/weather-observation-station-4/problem</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">select</span> <span class="n">count</span><span class="p">(</span><span class="n">city</span><span class="p">)</span> <span class="o">-</span> <span class="n">count</span><span class="p">(</span><span class="n">distinct</span> <span class="n">city</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">station</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="10.-Weather-Observation-Station-5">10. Weather Observation Station 5<a class="anchor-link" href="#10.-Weather-Observation-Station-5"> </a></h3><p><a href="https://www.hackerrank.com/challenges/weather-observation-station-5/problem">https://www.hackerrank.com/challenges/weather-observation-station-5/problem</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">select</span> <span class="o">*</span> <span class="n">from</span><span class="p">(</span><span class="n">select</span> <span class="n">distinct</span> <span class="n">city</span><span class="p">,</span><span class="n">length</span><span class="p">(</span><span class="n">city</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">station</span> <span class="n">order</span> <span class="n">by</span> <span class="n">length</span><span class="p">(</span><span class="n">city</span><span class="p">)</span> <span class="n">asc</span><span class="p">,</span><span class="n">city</span> <span class="n">asc</span><span class="p">)</span> <span class="n">where</span> <span class="n">rownum</span><span class="o">=</span><span class="mi">1</span> <span class="n">union</span>
+<span class="n">select</span> <span class="o">*</span> <span class="n">from</span><span class="p">(</span><span class="n">select</span> <span class="n">distinct</span> <span class="n">city</span><span class="p">,</span><span class="n">length</span><span class="p">(</span><span class="n">city</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">station</span> <span class="n">order</span> <span class="n">by</span> <span class="n">length</span><span class="p">(</span><span class="n">city</span><span class="p">)</span> <span class="n">desc</span><span class="p">,</span><span class="n">city</span> <span class="n">desc</span><span class="p">)</span> <span class="n">where</span> <span class="n">rownum</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="11.-Weather-Observation-Station-6">11. Weather Observation Station 6<a class="anchor-link" href="#11.-Weather-Observation-Station-6"> </a></h3><p><a href="https://www.hackerrank.com/challenges/weather-observation-station-6/problem">https://www.hackerrank.com/challenges/weather-observation-station-6/problem</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">select</span> <span class="n">distinct</span> <span class="n">city</span> <span class="kn">from</span> <span class="nn">station</span> <span class="n">where</span> <span class="n">regexp_like</span><span class="p">(</span><span class="n">city</span><span class="p">,</span> <span class="s1">&#39;^[aeiouAEIOU]&#39;</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="12.-Weather-Observation-Station-7">12. Weather Observation Station 7<a class="anchor-link" href="#12.-Weather-Observation-Station-7"> </a></h3><p><a href="https://www.hackerrank.com/challenges/weather-observation-station-7/problem">https://www.hackerrank.com/challenges/weather-observation-station-7/problem</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">select</span> <span class="n">distinct</span> <span class="n">city</span> <span class="kn">from</span> <span class="nn">station</span> <span class="n">where</span> <span class="n">regexp_like</span><span class="p">(</span><span class="n">city</span><span class="p">,</span> <span class="s1">&#39;*[aeiouAEIOU]$&#39;</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="13.-Weather-Observation-Station-8">13. Weather Observation Station 8<a class="anchor-link" href="#13.-Weather-Observation-Station-8"> </a></h3><p><a href="https://www.hackerrank.com/challenges/weather-observation-station-8/problem">https://www.hackerrank.com/challenges/weather-observation-station-8/problem</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">select</span> <span class="n">distinct</span> <span class="n">city</span> <span class="kn">from</span> <span class="nn">station</span> <span class="n">where</span> <span class="n">regexp_like</span><span class="p">(</span><span class="n">city</span><span class="p">,</span> <span class="s1">&#39;^[aeiouAEIOU].*[aeiouAEIOU]$&#39;</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="14.-Weather-Observation-Station-9">14. Weather Observation Station 9<a class="anchor-link" href="#14.-Weather-Observation-Station-9"> </a></h3><p><a href="https://www.hackerrank.com/challenges/weather-observation-station-9/problem">https://www.hackerrank.com/challenges/weather-observation-station-9/problem</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">select</span> <span class="n">distinct</span> <span class="n">city</span> <span class="kn">from</span> <span class="nn">station</span> <span class="n">where</span> <span class="n">regexp_like</span><span class="p">(</span><span class="n">city</span><span class="p">,</span> <span class="s1">&#39;^[^aeiouAEIOU]&#39;</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="15.-Weather-Observation-Station-10">15. Weather Observation Station 10<a class="anchor-link" href="#15.-Weather-Observation-Station-10"> </a></h3><p><a href="https://www.hackerrank.com/challenges/weather-observation-station-10/problem">https://www.hackerrank.com/challenges/weather-observation-station-10/problem</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">select</span> <span class="n">distinct</span> <span class="n">city</span> 
+<span class="kn">from</span> <span class="nn">station</span> 
+<span class="n">where</span> <span class="n">regexp_like</span><span class="p">(</span><span class="n">city</span><span class="p">,</span> <span class="s1">&#39;*[^aeiouAEIOU]$&#39;</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="16.-Weather-Observation-Station-11">16. Weather Observation Station 11<a class="anchor-link" href="#16.-Weather-Observation-Station-11"> </a></h3><p><a href="https://www.hackerrank.com/challenges/weather-observation-station-11/problem">https://www.hackerrank.com/challenges/weather-observation-station-11/problem</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">select</span> <span class="n">distinct</span> <span class="n">city</span> <span class="kn">from</span> <span class="nn">station</span> <span class="n">where</span> <span class="n">regexp_like</span><span class="p">(</span><span class="n">city</span><span class="p">,</span> <span class="s1">&#39;^[^aeiouAEIOU]|*[^aeiouAEIOU]$&#39;</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="17.-Weather-Observation-Station-12">17. Weather Observation Station 12<a class="anchor-link" href="#17.-Weather-Observation-Station-12"> </a></h3><p><a href="https://www.hackerrank.com/challenges/weather-observation-station-12/problem">https://www.hackerrank.com/challenges/weather-observation-station-12/problem</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">select</span> <span class="n">distinct</span> <span class="n">city</span> <span class="kn">from</span> <span class="nn">station</span> <span class="n">where</span> <span class="n">regexp_like</span><span class="p">(</span><span class="n">city</span><span class="p">,</span> <span class="s1">&#39;^[^aeiouAEIOU].*[^aeiouAEIOU]$&#39;</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="18.-Employee-Names">18. Employee Names<a class="anchor-link" href="#18.-Employee-Names"> </a></h3><p><a href="https://www.hackerrank.com/challenges/name-of-employees/problem">https://www.hackerrank.com/challenges/name-of-employees/problem</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">select</span> <span class="n">name</span> <span class="kn">from</span> <span class="nn">employee</span> <span class="n">order</span> <span class="n">by</span> <span class="n">name</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="19.-Employee-Salaries">19. Employee Salaries<a class="anchor-link" href="#19.-Employee-Salaries"> </a></h3><p><a href="https://www.hackerrank.com/challenges/salary-of-employees/problem">https://www.hackerrank.com/challenges/salary-of-employees/problem</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">select</span> <span class="n">name</span> <span class="kn">from</span> <span class="nn">employee</span> <span class="n">where</span> <span class="n">salary</span> <span class="o">&gt;</span> <span class="mi">2000</span> <span class="ow">and</span> <span class="n">months</span> <span class="o">&lt;</span> <span class="mi">10</span> <span class="n">order</span> <span class="n">by</span> <span class="n">employee_id</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="20.-Type-of-Triangle">20. Type of Triangle<a class="anchor-link" href="#20.-Type-of-Triangle"> </a></h3><p><a href="https://www.hackerrank.com/challenges/what-type-of-triangle/problem">https://www.hackerrank.com/challenges/what-type-of-triangle/problem</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">SELECT</span> <span class="n">CASE</span> 
+<span class="n">WHEN</span> <span class="n">A</span> <span class="o">+</span> <span class="n">B</span> <span class="o">&gt;</span> <span class="n">C</span> <span class="n">THEN</span> <span class="n">CASE</span> 
+    <span class="n">WHEN</span> <span class="n">A</span> <span class="o">=</span> <span class="n">B</span> <span class="n">AND</span> <span class="n">B</span> <span class="o">=</span> <span class="n">C</span> <span class="n">THEN</span> <span class="s1">&#39;Equilateral&#39;</span> 
+    <span class="n">WHEN</span> <span class="n">A</span> <span class="o">=</span> <span class="n">B</span> <span class="n">OR</span> <span class="n">B</span> <span class="o">=</span> <span class="n">C</span> <span class="n">OR</span> <span class="n">A</span> <span class="o">=</span> <span class="n">C</span> <span class="n">THEN</span> <span class="s1">&#39;Isosceles&#39;</span> 
+    <span class="n">WHEN</span> <span class="n">A</span> <span class="o">!=</span> <span class="n">B</span> <span class="n">OR</span> <span class="n">B</span> <span class="o">!=</span> <span class="n">C</span> <span class="n">OR</span> <span class="n">A</span> <span class="o">!=</span> <span class="n">C</span> <span class="n">THEN</span> <span class="s1">&#39;Scalene&#39;</span> 
+    <span class="n">END</span> 
+<span class="n">ELSE</span> <span class="s1">&#39;Not A Triangle&#39;</span> 
+<span class="n">END</span> 
+<span class="n">FROM</span> <span class="n">TRIANGLES</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="21.-Revising-Aggregations---The-Count-Function">21. Revising Aggregations - The Count Function<a class="anchor-link" href="#21.-Revising-Aggregations---The-Count-Function"> </a></h3><p><a href="https://www.hackerrank.com/challenges/revising-aggregations-the-count-function/problem">https://www.hackerrank.com/challenges/revising-aggregations-the-count-function/problem</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">select</span> <span class="n">count</span><span class="p">(</span><span class="n">countrycode</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">city</span> <span class="n">where</span> <span class="n">population</span> <span class="o">&gt;</span> <span class="mi">100000</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="22.-Revising-Aggregations---The-Sum-Function">22. Revising Aggregations - The Sum Function<a class="anchor-link" href="#22.-Revising-Aggregations---The-Sum-Function"> </a></h3><p><a href="https://www.hackerrank.com/challenges/revising-aggregations-sum/problem">https://www.hackerrank.com/challenges/revising-aggregations-sum/problem</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">select</span> <span class="nb">sum</span><span class="p">(</span><span class="n">population</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">city</span> <span class="n">where</span> <span class="n">district</span> <span class="o">=</span> <span class="s1">&#39;California&#39;</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="23.-Revising-Aggregations---Averages">23. Revising Aggregations - Averages<a class="anchor-link" href="#23.-Revising-Aggregations---Averages"> </a></h3><p><a href="https://www.hackerrank.com/challenges/revising-aggregations-the-average-function/problem">https://www.hackerrank.com/challenges/revising-aggregations-the-average-function/problem</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">select</span> <span class="n">avg</span><span class="p">(</span><span class="n">population</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">city</span> <span class="n">where</span> <span class="n">district</span><span class="o">=</span><span class="s1">&#39;California&#39;</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="24.-Average-Population">24. Average Population<a class="anchor-link" href="#24.-Average-Population"> </a></h3><p><a href="https://www.hackerrank.com/challenges/average-population/problem">https://www.hackerrank.com/challenges/average-population/problem</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">select</span> <span class="n">floor</span><span class="p">(</span><span class="n">avg</span><span class="p">(</span><span class="n">population</span><span class="p">))</span> <span class="kn">from</span> <span class="nn">city</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="25.-Higher-Than-75-Marks">25. Higher Than 75 Marks<a class="anchor-link" href="#25.-Higher-Than-75-Marks"> </a></h3><p><a href="https://www.hackerrank.com/challenges/more-than-75-marks/problem">https://www.hackerrank.com/challenges/more-than-75-marks/problem</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">select</span> <span class="n">name</span> <span class="kn">from</span> <span class="nn">students</span> <span class="n">where</span> <span class="n">marks</span><span class="o">&gt;</span><span class="mi">75</span> <span class="n">order</span> <span class="n">by</span> <span class="n">substr</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="o">-</span><span class="mi">3</span><span class="p">),</span> <span class="nb">id</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="26.-Japan-Population">26. Japan Population<a class="anchor-link" href="#26.-Japan-Population"> </a></h3><p><a href="https://www.hackerrank.com/challenges/japan-population/problem">https://www.hackerrank.com/challenges/japan-population/problem</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">select</span> <span class="nb">sum</span><span class="p">(</span><span class="n">population</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">city</span> <span class="n">where</span> <span class="n">countrycode</span><span class="o">=</span><span class="s1">&#39;JPN&#39;</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="27.-Population-Density-Difference">27. Population Density Difference<a class="anchor-link" href="#27.-Population-Density-Difference"> </a></h3><p><a href="https://www.hackerrank.com/challenges/population-density-difference/problem">https://www.hackerrank.com/challenges/population-density-difference/problem</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">select</span> <span class="nb">max</span><span class="p">(</span><span class="n">population</span><span class="p">)</span> <span class="o">-</span> <span class="nb">min</span><span class="p">(</span><span class="n">population</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">city</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="28.-The-Blunder">28. The Blunder<a class="anchor-link" href="#28.-The-Blunder"> </a></h3><p><a href="https://www.hackerrank.com/challenges/the-blunder/problem">https://www.hackerrank.com/challenges/the-blunder/problem</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">select</span> <span class="n">ceil</span><span class="p">(</span><span class="n">avg</span><span class="p">(</span><span class="n">salary</span><span class="p">)</span> <span class="o">-</span> <span class="n">avg</span><span class="p">(</span><span class="n">to_number</span><span class="p">(</span><span class="n">replace</span><span class="p">(</span><span class="n">to_char</span><span class="p">(</span><span class="n">salary</span><span class="p">),</span> <span class="s1">&#39;0&#39;</span><span class="p">))))</span> <span class="kn">from</span> <span class="nn">employees</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="29.-Top-Earners">29. Top Earners<a class="anchor-link" href="#29.-Top-Earners"> </a></h3><p><a href="https://www.hackerrank.com/challenges/earnings-of-employees/problem">https://www.hackerrank.com/challenges/earnings-of-employees/problem</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">select</span> <span class="nb">max</span><span class="p">(</span><span class="n">months</span> <span class="o">*</span> <span class="n">salary</span><span class="p">),</span> <span class="n">count</span><span class="p">(</span><span class="n">months</span> <span class="o">*</span> <span class="n">salary</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">Employee</span> <span class="n">where</span> <span class="p">(</span><span class="n">months</span> <span class="o">*</span> <span class="n">salary</span><span class="p">)</span> <span class="o">=</span> <span class="p">(</span><span class="n">select</span> <span class="nb">max</span><span class="p">(</span><span class="n">months</span> <span class="o">*</span> <span class="n">salary</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">Employee</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="30.-Weather-Observation-Station-2">30. Weather Observation Station 2<a class="anchor-link" href="#30.-Weather-Observation-Station-2"> </a></h3><p><a href="https://www.hackerrank.com/challenges/weather-observation-station-2/problem">https://www.hackerrank.com/challenges/weather-observation-station-2/problem</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">select</span> <span class="nb">round</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">lat_n</span><span class="p">),</span> <span class="mi">2</span><span class="p">),</span> <span class="nb">round</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">long_w</span><span class="p">),</span> <span class="mi">2</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">station</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="31.-Weather-Observation-Station-13">31. Weather Observation Station 13<a class="anchor-link" href="#31.-Weather-Observation-Station-13"> </a></h3><p><a href="https://www.hackerrank.com/challenges/weather-observation-station-13/problem">https://www.hackerrank.com/challenges/weather-observation-station-13/problem</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">select</span> <span class="nb">round</span><span class="p">(</span><span class="nb">sum</span><span class="p">(</span><span class="n">lat_n</span><span class="p">),</span> <span class="mi">4</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">station</span> <span class="n">where</span> <span class="n">lat_n</span> <span class="o">&gt;</span> <span class="mf">38.7880</span> <span class="ow">and</span> <span class="n">lat_n</span> <span class="o">&lt;</span> <span class="mf">137.2345</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="32.-Weather-Observation-Station-14">32. Weather Observation Station 14<a class="anchor-link" href="#32.-Weather-Observation-Station-14"> </a></h3><p><a href="https://www.hackerrank.com/challenges/weather-observation-station-14/problem">https://www.hackerrank.com/challenges/weather-observation-station-14/problem</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">select</span> <span class="nb">round</span><span class="p">(</span><span class="nb">max</span><span class="p">(</span><span class="n">lat_n</span><span class="p">),</span> <span class="mi">4</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">station</span> <span class="n">where</span> <span class="n">lat_n</span> <span class="o">&lt;</span> <span class="mf">137.2345</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="33.-Weather-Observation-Station-15">33. Weather Observation Station 15<a class="anchor-link" href="#33.-Weather-Observation-Station-15"> </a></h3><p><a href="https://www.hackerrank.com/challenges/weather-observation-station-15/problem">https://www.hackerrank.com/challenges/weather-observation-station-15/problem</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">select</span> <span class="nb">round</span><span class="p">(</span><span class="n">long_w</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">station</span> <span class="n">where</span> <span class="n">lat_n</span> <span class="o">=</span> <span class="p">(</span><span class="n">select</span> <span class="nb">max</span><span class="p">(</span><span class="n">lat_n</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">station</span> <span class="n">where</span> <span class="n">lat_n</span> <span class="o">&lt;</span> <span class="mf">137.2345</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="34.-Weather-Observation-Station-16">34. Weather Observation Station 16<a class="anchor-link" href="#34.-Weather-Observation-Station-16"> </a></h3><p><a href="https://www.hackerrank.com/challenges/weather-observation-station-16/problem">https://www.hackerrank.com/challenges/weather-observation-station-16/problem</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">select</span> <span class="nb">round</span><span class="p">(</span><span class="nb">min</span><span class="p">(</span><span class="n">lat_n</span><span class="p">),</span> <span class="mi">4</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">station</span> <span class="n">where</span> <span class="n">lat_n</span> <span class="o">&gt;</span> <span class="mf">38.7780</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="35.-Weather-Observation-Station-17">35. Weather Observation Station 17<a class="anchor-link" href="#35.-Weather-Observation-Station-17"> </a></h3><p><a href="https://www.hackerrank.com/challenges/weather-observation-station-17/problem">https://www.hackerrank.com/challenges/weather-observation-station-17/problem</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">select</span> <span class="nb">round</span><span class="p">(</span><span class="n">long_w</span><span class="p">,</span> <span class="mi">4</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">station</span> <span class="n">where</span> <span class="n">lat_n</span> <span class="o">=</span> <span class="p">(</span><span class="n">select</span> <span class="nb">min</span><span class="p">(</span><span class="n">lat_n</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">station</span> <span class="n">where</span> <span class="n">lat_n</span> <span class="o">&gt;</span> <span class="mf">38.7780</span><span class="p">);</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="36.-Asian-Population">36. Asian Population<a class="anchor-link" href="#36.-Asian-Population"> </a></h3><p><a href="https://www.hackerrank.com/challenges/asian-population/problem">https://www.hackerrank.com/challenges/asian-population/problem</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">select</span> <span class="nb">sum</span><span class="p">(</span><span class="n">city</span><span class="o">.</span><span class="n">population</span><span class="p">)</span> <span class="kn">from</span> <span class="nn">city</span><span class="p">,</span> <span class="n">country</span> <span class="n">where</span> <span class="n">city</span><span class="o">.</span><span class="n">countrycode</span> <span class="o">=</span> <span class="n">country</span><span class="o">.</span><span class="n">code</span> <span class="ow">and</span> <span class="n">continent</span><span class="o">=</span><span class="s1">&#39;Asia&#39;</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="37.-African-Cities">37. African Cities<a class="anchor-link" href="#37.-African-Cities"> </a></h3><p><a href="https://www.hackerrank.com/challenges/african-cities/problem">https://www.hackerrank.com/challenges/african-cities/problem</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">select</span> <span class="n">city</span><span class="o">.</span><span class="n">name</span> <span class="kn">from</span> <span class="nn">city</span><span class="p">,</span> <span class="n">country</span> <span class="n">where</span> <span class="n">city</span><span class="o">.</span><span class="n">countrycode</span> <span class="o">=</span> <span class="n">country</span><span class="o">.</span><span class="n">code</span> <span class="ow">and</span> <span class="n">country</span><span class="o">.</span><span class="n">continent</span><span class="o">=</span><span class="s1">&#39;Africa&#39;</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="38.-Average-Population-of-Each-Continent">38. Average Population of Each Continent<a class="anchor-link" href="#38.-Average-Population-of-Each-Continent"> </a></h3><p><a href="https://www.hackerrank.com/challenges/average-population-of-each-continent/problem">https://www.hackerrank.com/challenges/average-population-of-each-continent/problem</a></p>
+
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">select</span> <span class="n">country</span><span class="o">.</span><span class="n">continent</span><span class="p">,</span> <span class="n">floor</span><span class="p">(</span><span class="n">avg</span><span class="p">(</span><span class="n">city</span><span class="o">.</span><span class="n">population</span><span class="p">))</span> <span class="kn">from</span> <span class="nn">city</span><span class="p">,</span> <span class="n">country</span> <span class="n">where</span> <span class="n">city</span><span class="o">.</span><span class="n">countrycode</span> <span class="o">=</span> <span class="n">country</span><span class="o">.</span><span class="n">code</span> <span class="n">group</span> <span class="n">by</span> <span class="n">country</span><span class="o">.</span><span class="n">continent</span><span class="p">;</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="thecoducer/blog"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/blog/hackerrank-sql-solutions/" hidden></a>
+</article>
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/blog/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/blog/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/blog/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p></p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/thecoducer" title="thecoducer"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/thecoducer" title="thecoducer"><svg class="svg-icon grey"><use xlink:href="/blog/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
